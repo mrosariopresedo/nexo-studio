@@ -26,7 +26,7 @@ Sitio web grupal de la consultora **Nexo Studio**, desarrollado para la materia 
 |---|---|
 | Lucía Gavilanes | https://luligavilanes.github.io/proyecto1jueves/ |
 | Valentina Martins | https://valmartins222.github.io/PROYECTO.P2/ |
-| Rosario Presedo | https://mrosariopresedo.github.io/desarrollo-web/tarea-3/ |
+| Rosario Presedo | https://github.com/mrosariopresedo/portfolio-presedo-nexo-studio |
 | Mora Raimondo | https://moraraimondo-cyber.github.io/proyecto1jueves/ |
 | Martina Sama | https://martinasama2005.github.io/proyecto1jueves/ |
 
@@ -36,8 +36,7 @@ Sitio web grupal de la consultora **Nexo Studio**, desarrollado para la materia 
 
 | | Enlace |
 |---|---|
-| **Sitio publicado (GitHub Pages)** | https://mrosariopresedo.github.io/digital-creators/ |
-| **Repositorio (GitHub)** | https://github.com/mrosariopresedo/digital-creators |
+| **Sitio publicado (GitHub Pages)** | https://mrosariopresedo.github.io/nexo-studio/ |
 
 ---
 
