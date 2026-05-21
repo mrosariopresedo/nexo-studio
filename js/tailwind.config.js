@@ -1,4 +1,4 @@
-// Configuración centralizada de Tailwind — se carga en todos los HTML
+// Configuración centralizada de Tailwind - se carga en todos los HTML
 // después del CDN: <script src="js/tailwind.config.js"></script>
 tailwind.config = {
   theme: {

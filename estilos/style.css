@@ -1,5 +1,5 @@
 /* ============================================================
-   NEXO STUDIO — CSS complementario (lo que Tailwind no cubre)
+   NEXO STUDIO - CSS complementario (lo que Tailwind no cubre)
    El grueso del styling vive en clases utility de Tailwind.
    Acá solo: @font-faces, ruido/grano, keyframes y un par de
    patrones complejos (servicio hover, underline acento, form).
