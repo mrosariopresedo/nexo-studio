@@ -1,94 +1,227 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Servicios de Nexo Studio: diseño UX/UI, desarrollo front-end, user research y marketing digital.">
-    <title>Servicios | Nexo Studio</title>
-    <link rel="icon" type="image/png" href="img/isotipo.png">
-    <link rel="stylesheet" href="estilos/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Servicios de Nexo Studio: diseño UX/UI, desarrollo front-end, user research y marketing digital.">
+  <title>Servicios · Nexo Studio</title>
+  <link rel="icon" type="image/png" href="img/isotipo.png">
+
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: { extend: {
+        colors: {
+          cream: { DEFAULT: '#F2EDE3', soft: '#ECE6D8', deep: '#E3DBC8' },
+          ink:   { DEFAULT: '#15233F', soft: '#2D3A56', mute: '#5C6680', faint: '#8E96A9' },
+          accent:{ DEFAULT: '#E85F25', deep: '#C9491A', soft: '#F5C8B0' },
+          line:  { DEFAULT: '#C9C0AC', soft: '#DDD4BE' },
+        },
+        fontFamily: { sans: ['Geist','system-ui','sans-serif'], mono: ['"Geist Mono"','monospace'] },
+      } },
+    };
+  </script>
+  <link rel="stylesheet" href="estilos/style.css">
 </head>
-<body>
+<body class="bg-cream text-ink font-sans antialiased overflow-x-hidden">
 
-    <header>
-        <a href="index.html" class="logo-link">
-            <img src="img/imagotipo.png" class="logo-img" alt="Nexo Studio">
+  <header class="site-header sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-line-soft px-[clamp(20px,5vw,56px)] py-4 flex items-center justify-between gap-6" data-screen-label="Header">
+    <a href="index.html" class="flex items-center gap-3 shrink-0">
+      <svg class="w-8 h-8 shrink-0" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path class="x-stroke-a" d="M6 6 L34 34" stroke="#15233F" stroke-width="5.5" stroke-linecap="square"/>
+        <path class="x-stroke-b" d="M34 6 L6 34" stroke="#E85F25" stroke-width="5.5" stroke-linecap="square"/>
+        <circle class="x-dot" cx="20" cy="20" r="5.2" fill="#F2EDE3" stroke="#15233F" stroke-width="1.5"/>
+        <circle class="x-dot" cx="20" cy="20" r="2.4" fill="#E85F25"/>
+      </svg>
+      <span class="font-sans font-semibold text-base tracking-tight text-ink">Nexo<span class="font-medium text-ink-mute ml-1">Studio</span></span>
+    </a>
+    <button class="hamburger sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú">&#9776;</button>
+    <nav class="site-nav hidden sm:block" id="nav-menu">
+      <ul class="flex items-center gap-2 list-none m-0 p-0">
+        <li><a href="index.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Inicio</a></li>
+        <li><a href="servicios.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Servicios</a></li>
+        <li><a href="proyectos.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Proyectos</a></li>
+        <li><a href="contacto.html" class="nav-cta font-mono text-[11px] uppercase tracking-[0.1em] px-4 py-[9px] bg-accent text-white rounded-full transition hover:bg-accent-deep hover:-translate-y-[1px] inline-flex items-center gap-1.5 dot-pulse">Hablemos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- ============ INTRO ============ -->
+    <section class="px-[clamp(20px,5vw,56px)] pt-12 pb-24 max-w-[1280px] mx-auto" data-screen-label="Servicios intro">
+      <div class="reveal flex flex-wrap justify-between items-center gap-5 pb-5 border-b border-line-soft font-mono text-[11px] tracking-[0.1em] uppercase text-ink-mute">
+        <span>Servicios · Nexo Studio</span>
+        <span>04 disciplinas · 01 equipo</span>
+        <span>Pasá el mouse para explorar</span>
+      </div>
+
+      <h1 class="reveal mt-10 font-sans font-medium text-[clamp(56px,11vw,160px)] leading-[0.96] tracking-[-0.04em] text-ink text-balance" data-delay="1">
+        Lo que <span class="accent-underline">hacemos</span><br>
+        cuando trabajamos<br>
+        con vos.
+      </h1>
+
+      <div class="mt-12 grid md:grid-cols-[1.2fr_1fr] gap-12 items-end">
+        <p class="reveal font-sans font-normal text-[clamp(20px,2.4vw,28px)] leading-[1.35] tracking-tight text-ink-soft max-w-[540px]" data-delay="2">
+          Somos el nexo entre tecnología y personas. Cada solución que diseñamos
+          nace de escuchar, investigar y comprender profundamente a quienes la
+          van a usar.
+        </p>
+        <div class="reveal flex flex-col gap-4 items-start" data-delay="3">
+          <a href="contacto.html" class="group inline-flex items-center gap-2.5 bg-accent text-white font-medium text-[15px] tracking-tight px-7 py-4 rounded-full transition-all duration-300 hover:bg-accent-deep hover:-translate-y-0.5">
+            Empezar un proyecto
+            <span class="text-xl transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+          </a>
+          <a href="#servicios" class="group inline-flex items-center gap-2.5 border border-line text-ink font-medium text-[15px] tracking-tight px-7 py-4 rounded-full transition-all duration-300 hover:bg-ink hover:text-cream hover:border-ink hover:-translate-y-0.5">
+            Ver los 4 servicios
+            <span class="text-xl transition-transform duration-300 group-hover:translate-y-1.5">↓</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SERVICIOS LIST ============ -->
+    <section id="servicios" class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto" data-screen-label="Servicios">
+      <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end mb-12 pb-5 border-b border-line-soft">
+        <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">01 / Disciplinas</span>
+        <h2 class="font-sans font-medium text-[clamp(40px,6vw,88px)] tracking-[-0.04em] leading-[0.98] text-balance">De la idea<br>al producto.</h2>
+        <p class="text-[15px] text-ink-mute max-w-[320px] leading-[1.5] mb-2">Cuatro disciplinas que se piensan juntas, no por separado. Eso es lo que las hace funcionar.</p>
+      </div>
+
+      <div class="flex flex-col border-t border-ink">
+
+        <article class="reveal servicio-row grid grid-cols-[80px_1fr_1.2fr_auto] gap-5 items-center py-8 border-b border-line-soft cursor-pointer">
+          <span class="servicio-num font-mono text-xs text-ink-faint tracking-[0.1em] transition-colors">→ 01</span>
+          <h3 class="font-sans font-medium text-[clamp(28px,3.6vw,56px)] tracking-[-0.03em] leading-none">Diseño UX / UI</h3>
+          <p class="servicio-desc text-sm text-ink-mute leading-[1.5] max-w-[440px] transition-colors">Interfaces intuitivas, accesibles y atractivas. Trabajamos centrados en el usuario para que cada experiencia fluya sin fricción.</p>
+          <span class="servicio-meta font-mono text-[11px] uppercase tracking-[0.08em] text-ink-mute transition-colors">Figma · Auditoría · Sistemas</span>
+          <div class="servicio-img"><img src="img/dise%C3%B1o%20ux.jpg" alt="" loading="lazy"></div>
+        </article>
+
+        <article class="reveal servicio-row grid grid-cols-[80px_1fr_1.2fr_auto] gap-5 items-center py-8 border-b border-line-soft cursor-pointer" data-delay="1">
+          <span class="servicio-num font-mono text-xs text-ink-faint tracking-[0.1em] transition-colors">→ 02</span>
+          <h3 class="font-sans font-medium text-[clamp(28px,3.6vw,56px)] tracking-[-0.03em] leading-none">Desarrollo front-end</h3>
+          <p class="servicio-desc text-sm text-ink-mute leading-[1.5] max-w-[440px] transition-colors">Sitios robustos y escalables con tecnologías modernas. Velocidad, responsive y código que se mantiene en el tiempo.</p>
+          <span class="servicio-meta font-mono text-[11px] uppercase tracking-[0.08em] text-ink-mute transition-colors">HTML · CSS · JS · React</span>
+          <div class="servicio-img"><img src="img/front%20end.jpg" alt="" loading="lazy"></div>
+        </article>
+
+        <article class="reveal servicio-row grid grid-cols-[80px_1fr_1.2fr_auto] gap-5 items-center py-8 border-b border-line-soft cursor-pointer" data-delay="2">
+          <span class="servicio-num font-mono text-xs text-ink-faint tracking-[0.1em] transition-colors">→ 03</span>
+          <h3 class="font-sans font-medium text-[clamp(28px,3.6vw,56px)] tracking-[-0.03em] leading-none">User research</h3>
+          <p class="servicio-desc text-sm text-ink-mute leading-[1.5] max-w-[440px] transition-colors">Analizamos comportamientos reales para tomar decisiones basadas en datos. Optimizamos usabilidad en plataformas complejas.</p>
+          <span class="servicio-meta font-mono text-[11px] uppercase tracking-[0.08em] text-ink-mute transition-colors">Entrevistas · Testing · Análisis</span>
+          <div class="servicio-img"><img src="img/user%20research.jpg" alt="" loading="lazy"></div>
+        </article>
+
+        <article class="reveal servicio-row grid grid-cols-[80px_1fr_1.2fr_auto] gap-5 items-center py-8 border-b border-line-soft cursor-pointer" data-delay="3">
+          <span class="servicio-num font-mono text-xs text-ink-faint tracking-[0.1em] transition-colors">→ 04</span>
+          <h3 class="font-sans font-medium text-[clamp(28px,3.6vw,56px)] tracking-[-0.03em] leading-none">Marketing digital</h3>
+          <p class="servicio-desc text-sm text-ink-mute leading-[1.5] max-w-[440px] transition-colors">Estrategias de Meta Ads y posicionamiento digital orientadas a resultados. Visibilidad para proyectos que quieren crecer.</p>
+          <span class="servicio-meta font-mono text-[11px] uppercase tracking-[0.08em] text-ink-mute transition-colors">Ads · SEO · Estrategia</span>
+          <div class="servicio-img"><img src="img/marketing%20digital.jpg" alt="" loading="lazy"></div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ============ PROCESO ============ -->
+    <section class="px-[clamp(20px,5vw,56px)] py-16 max-w-[1280px] mx-auto" data-screen-label="Proceso">
+      <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end mb-12 pb-5 border-b border-line-soft">
+        <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">02 / Proceso</span>
+        <h2 class="font-sans font-medium text-[clamp(40px,6vw,88px)] tracking-[-0.04em] leading-[0.98] text-balance">Cómo trabajamos.</h2>
+        <p class="text-[15px] text-ink-mute max-w-[320px] leading-[1.5] mb-2">Cuatro etapas que se solapan, no que se suceden. Iteramos en cada una.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+        <div class="reveal flex flex-col gap-2">
+          <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">Semana 01 · 02</span>
+          <span class="font-sans font-medium text-xl leading-tight text-ink">Investigar y escuchar</span>
+        </div>
+        <div class="reveal flex flex-col gap-2" data-delay="1">
+          <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">Semana 02 · 04</span>
+          <span class="font-sans font-medium text-xl leading-tight text-ink">Diseñar y prototipar</span>
+        </div>
+        <div class="reveal flex flex-col gap-2" data-delay="2">
+          <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">Semana 04 · 08</span>
+          <span class="font-sans font-medium text-xl leading-tight text-ink">Construir y testear</span>
+        </div>
+        <div class="reveal flex flex-col gap-2" data-delay="3">
+          <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">Continuo</span>
+          <span class="font-sans font-medium text-xl leading-tight text-ink">Medir y ajustar</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CTA FINAL ============ -->
+    <section class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto" data-screen-label="CTA">
+      <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end">
+        <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">03 / Próximo paso</span>
+        <h2 class="font-sans font-medium text-[clamp(40px,6vw,88px)] tracking-[-0.04em] leading-[0.98] text-balance">¿Conectamos tu<br>próximo proyecto?</h2>
+        <div>
+          <a href="contacto.html" class="group inline-flex items-center gap-2.5 bg-accent text-white font-medium text-[15px] tracking-tight px-7 py-4 rounded-full transition-all duration-300 hover:bg-accent-deep hover:-translate-y-0.5">
+            Hablemos
+            <span class="text-xl transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer (mismo bloque) -->
+  <footer class="relative z-10 mt-16 border-t border-line-soft bg-cream-soft px-[clamp(20px,5vw,56px)] pt-16 pb-6" data-screen-label="Footer">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-line-soft">
+      <div>
+        <a href="index.html" class="flex items-center gap-3">
+          <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M6 6 L34 34" stroke="#15233F" stroke-width="5.5" stroke-linecap="square"/>
+            <path d="M34 6 L6 34" stroke="#E85F25" stroke-width="5.5" stroke-linecap="square"/>
+            <circle cx="20" cy="20" r="5.2" fill="#F2EDE3" stroke="#15233F" stroke-width="1.5"/>
+            <circle cx="20" cy="20" r="2.4" fill="#E85F25"/>
+          </svg>
+          <span class="font-sans font-semibold text-base tracking-tight text-ink">Nexo<span class="font-medium text-ink-mute ml-1">Studio</span></span>
         </a>
-        <button class="hamburger" id="hamburger" aria-label="Abrir menú">&#9776;</button>
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+        <p class="mt-4 text-lg text-ink-soft leading-[1.4] max-w-[360px]">Diseño + tecnología, en un solo equipo. <br>Buenos Aires, Argentina.</p>
+      </div>
+      <div>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-faint mb-4 font-medium">Navegación</h4>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5">
+          <li><a href="index.html" class="text-sm text-ink hover:text-accent transition">Inicio</a></li>
+          <li><a href="servicios.html" class="text-sm text-ink hover:text-accent transition">Servicios</a></li>
+          <li><a href="proyectos.html" class="text-sm text-ink hover:text-accent transition">Proyectos</a></li>
+          <li><a href="contacto.html" class="text-sm text-ink hover:text-accent transition">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-faint mb-4 font-medium">Servicios</h4>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5">
+          <li><a href="servicios.html" class="text-sm text-ink hover:text-accent transition">Diseño UX/UI</a></li>
+          <li><a href="servicios.html" class="text-sm text-ink hover:text-accent transition">Front-end</a></li>
+          <li><a href="servicios.html" class="text-sm text-ink hover:text-accent transition">User Research</a></li>
+          <li><a href="servicios.html" class="text-sm text-ink hover:text-accent transition">Marketing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-faint mb-4 font-medium">Contacto</h4>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5">
+          <li><a href="mailto:hola@nexostudio.com" class="text-sm text-ink hover:text-accent transition">hola@nexostudio.com</a></li>
+          <li><a href="contacto.html" class="text-sm text-ink hover:text-accent transition">Formulario</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="max-w-[1280px] mx-auto mt-12 flex items-baseline gap-[0.05em] font-sans font-medium text-[clamp(80px,18vw,260px)] tracking-[-0.06em] leading-[0.9] text-ink select-none" aria-hidden="true">
+      N<span class="footer-wordmark-italic">e</span>xo<span class="inline-block w-[0.18em] h-[0.18em] rounded-full bg-accent self-end ml-[-0.05em] mb-[0.1em]"></span>
+    </div>
+    <div class="max-w-[1280px] mx-auto mt-6 flex flex-wrap justify-between items-center gap-5 font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">
+      <span>© 2026 Nexo Studio</span>
+      <span>DDW1C26 · Grupo 02</span>
+      <span>Hecho con código y café</span>
+    </div>
+  </footer>
 
-    <main>
-        <h1>Nuestros Servicios</h1>
-        <p>En Nexo Studio somos el nexo entre la tecnología y las personas. Cada solución que diseñamos nace de escuchar, investigar y comprender profundamente a quienes la van a usar.</p>
-
-        <h2>Lo que hacemos</h2>
-
-        <section class="servicios-grid">
-
-            <article class="servicio-card">
-                <figure class="servicio-figura">
-                    <img src="img/dise%C3%B1o%20ux.jpg" alt="Diseño UX/UI" loading="lazy">
-                </figure>
-                <div class="servicio-info">
-                    <h3>Diseño UX / UI</h3>
-                    <p class="servicio-subtitulo">Diseño centrado en el usuario</p>
-                    <p>Creamos interfaces intuitivas y atractivas centradas en el usuario, garantizando que cada experiencia digital sea fluida, accesible y eficiente.</p>
-                </div>
-            </article>
-
-            <article class="servicio-card">
-                <figure class="servicio-figura">
-                    <img src="img/front%20end.jpg" alt="Desarrollo Front-end" loading="lazy">
-                </figure>
-                <div class="servicio-info">
-                    <h3>Desarrollo Front-end</h3>
-                    <p class="servicio-subtitulo">Tecnología web moderna y escalable</p>
-                    <p>Construimos sitios robustos y escalables utilizando las últimas tecnologías web, priorizando la velocidad y la adaptabilidad (Responsive Design).</p>
-                </div>
-            </article>
-
-            <article class="servicio-card">
-                <figure class="servicio-figura">
-                    <img src="img/user%20research.jpg" alt="User Research" loading="lazy">
-                </figure>
-                <div class="servicio-info">
-                    <h3>User Research</h3>
-                    <p class="servicio-subtitulo">Investigación basada en datos reales</p>
-                    <p>Analizamos el comportamiento de los usuarios para tomar decisiones basadas en datos, optimizando la usabilidad de plataformas de alta complejidad.</p>
-                </div>
-            </article>
-
-            <article class="servicio-card">
-                <figure class="servicio-figura">
-                    <img src="img/marketing%20digital.jpg" alt="Marketing Digital" loading="lazy">
-                </figure>
-                <div class="servicio-info">
-                    <h3>Marketing Digital</h3>
-                    <p class="servicio-subtitulo">Estrategia y visibilidad digital</p>
-                    <p>Potenciamos la visibilidad de grandes proyectos mediante estrategias de Meta Ads y posicionamiento digital orientado a resultados.</p>
-                </div>
-            </article>
-
-        </section>
-
-        <p>¿Querés conectar tu próximo proyecto con el equipo de Nexo Studio?</p>
-        <a href="contacto.html" class="boton-cta">Hablemos →</a>
-
-    </main>
-
-    <footer>
-        <img src="img/isotipo.png" class="footer-isotipo" alt="Nexo Studio">
-        <p>© 2026 Nexo Studio. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="js/menu.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/interactions.js"></script>
 </body>
 </html>

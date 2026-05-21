@@ -1,152 +1,269 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Nexo Studio — conectamos tecnología y personas. Diseño UX/UI, desarrollo front-end, user research y marketing digital.">
-    <title>Inicio | Nexo Studio</title>
-    <link rel="icon" type="image/png" href="img/isotipo.png">
-    <link rel="stylesheet" href="estilos/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Nexo Studio — conectamos tecnología y personas. Diseño UX/UI, desarrollo front-end, user research y marketing digital.">
+  <title>Nexo Studio — El nexo entre tecnología y personas</title>
+  <link rel="icon" type="image/png" href="img/isotipo.png">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            cream: { DEFAULT: '#F2EDE3', soft: '#ECE6D8', deep: '#E3DBC8' },
+            ink:   { DEFAULT: '#15233F', soft: '#2D3A56', mute: '#5C6680', faint: '#8E96A9' },
+            accent:{ DEFAULT: '#E85F25', deep: '#C9491A', soft: '#F5C8B0' },
+            line:  { DEFAULT: '#C9C0AC', soft: '#DDD4BE' },
+          },
+          fontFamily: {
+            sans: ['Geist', 'system-ui', 'sans-serif'],
+            mono: ['"Geist Mono"', 'monospace'],
+          },
+        },
+      },
+    };
+  </script>
+
+  <link rel="stylesheet" href="estilos/style.css">
 </head>
-<body>
+<body class="bg-cream text-ink font-sans antialiased overflow-x-hidden">
 
-    <header>
-        <a href="index.html" class="logo-link">
-            <img src="img/imagotipo.png" class="logo-img" alt="Nexo Studio">
+  <!-- ============ HEADER ============ -->
+  <header class="site-header sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-line-soft px-[clamp(20px,5vw,56px)] py-4 flex items-center justify-between gap-6" data-screen-label="Header">
+    <a href="index.html" class="flex items-center gap-3 shrink-0">
+      <svg class="w-8 h-8 shrink-0" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+        <path class="x-stroke-a" d="M6 6 L34 34" stroke="#15233F" stroke-width="5.5" stroke-linecap="square"/>
+        <path class="x-stroke-b" d="M34 6 L6 34" stroke="#E85F25" stroke-width="5.5" stroke-linecap="square"/>
+        <circle class="x-dot" cx="20" cy="20" r="5.2" fill="#F2EDE3" stroke="#15233F" stroke-width="1.5"/>
+        <circle class="x-dot" cx="20" cy="20" r="2.4" fill="#E85F25"/>
+      </svg>
+      <span class="font-sans font-semibold text-base tracking-tight text-ink">Nexo<span class="font-medium text-ink-mute ml-1">Studio</span></span>
+    </a>
+
+    <button class="hamburger sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú">&#9776;</button>
+
+    <nav class="site-nav hidden sm:block" id="nav-menu">
+      <ul class="flex items-center gap-2 list-none m-0 p-0">
+        <li><a href="index.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Inicio</a></li>
+        <li><a href="servicios.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Servicios</a></li>
+        <li><a href="proyectos.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Proyectos</a></li>
+        <li><a href="contacto.html" class="nav-cta font-mono text-[11px] uppercase tracking-[0.1em] px-4 py-[9px] bg-accent text-white rounded-full transition hover:bg-accent-deep hover:-translate-y-[1px] inline-flex items-center gap-1.5 dot-pulse">Hablemos</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main class="relative z-10">
+
+    <!-- ============ HERO ============ -->
+    <section class="px-[clamp(20px,5vw,56px)] pt-12 pb-24 max-w-[1280px] mx-auto" data-screen-label="Hero">
+      <div class="reveal flex flex-wrap justify-between items-center gap-5 pb-5 border-b border-line-soft font-mono text-[11px] tracking-[0.1em] uppercase text-ink-mute">
+        <span>Nexo Studio · Buenos Aires</span>
+        <span class="inline-flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 ring-4 ring-emerald-500/25"></span>
+          Tomando proyectos · 2026
+        </span>
+        <span>Comisión 26 · Grupo 02</span>
+      </div>
+
+      <h1 class="reveal mt-10 font-sans font-medium text-[clamp(56px,11vw,160px)] leading-[0.96] tracking-[-0.04em] text-ink text-balance" data-delay="1">
+        El <span class="accent-underline">nexo</span><br>
+        entre tecnología<br>
+        y personas.
+      </h1>
+
+      <div class="mt-12 grid md:grid-cols-[1.2fr_1fr] gap-12 items-end">
+        <p class="reveal font-sans font-normal text-[clamp(20px,2.4vw,28px)] leading-[1.35] tracking-tight text-ink-soft max-w-[540px]" data-delay="2">
+          Diseñamos y construimos productos digitales con mirada estratégica,
+          interfaces claras y código sólido. Para equipos que quieren crecer
+          conectándose mejor con sus usuarios.
+        </p>
+
+        <div class="reveal flex flex-col gap-4 items-start" data-delay="3">
+          <a href="contacto.html" class="group inline-flex items-center gap-2.5 bg-ink text-cream font-medium text-[15px] tracking-tight px-7 py-4 rounded-full transition-all duration-300 hover:bg-accent hover:-translate-y-0.5">
+            Hablemos de tu proyecto
+            <span class="text-xl transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+          </a>
+          <a href="servicios.html" class="group inline-flex items-center gap-2.5 border border-line text-ink font-medium text-[15px] tracking-tight px-7 py-4 rounded-full transition-all duration-300 hover:bg-ink hover:text-cream hover:border-ink hover:-translate-y-0.5">
+            Ver servicios
+            <span class="text-xl transition-transform duration-300 group-hover:translate-x-1.5">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MÉTRICAS ============ -->
+    <section class="reveal max-w-[1280px] mx-auto px-[clamp(20px,5vw,56px)] grid grid-cols-2 md:grid-cols-4 border-t border-b border-line-soft" data-screen-label="Metricas">
+      <div class="p-6 border-r border-line-soft last:border-r-0 flex flex-col gap-2">
+        <span class="font-sans font-medium text-[clamp(40px,5vw,72px)] leading-none tracking-tight text-ink">05<sup class="font-mono text-sm text-accent ml-1 align-super">•</sup></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute">Integrantes</span>
+      </div>
+      <div class="p-6 border-r border-line-soft last:border-r-0 flex flex-col gap-2">
+        <span class="font-sans font-medium text-[clamp(40px,5vw,72px)] leading-none tracking-tight text-ink">04</span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute">Disciplinas</span>
+      </div>
+      <div class="p-6 border-r border-line-soft last:border-r-0 flex flex-col gap-2">
+        <span class="font-sans font-medium text-[clamp(40px,5vw,72px)] leading-none tracking-tight text-ink">24<sup class="font-mono text-sm text-accent ml-1 align-super">h</sup></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute">Respondemos en</span>
+      </div>
+      <div class="p-6 flex flex-col gap-2">
+        <span class="font-sans font-medium text-[clamp(40px,5vw,72px)] leading-none tracking-tight text-ink">100<sup class="font-mono text-sm text-accent ml-1 align-super">%</sup></span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute">Centrado en usuario</span>
+      </div>
+    </section>
+
+    <!-- ============ MANIFIESTO ============ -->
+    <section class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto grid md:grid-cols-[200px_1fr] gap-12 items-start" data-screen-label="Manifiesto">
+      <div class="reveal flex flex-col gap-3 md:sticky md:top-24">
+        <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">02 / Manifiesto</span>
+        <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-mute inline-flex items-center gap-3">
+          <span class="inline-block w-7 h-px bg-ink-mute"></span>
+          Cómo trabajamos
+        </span>
+      </div>
+      <p class="reveal font-sans font-normal text-[clamp(28px,3.4vw,48px)] leading-[1.25] tracking-tight text-ink max-w-[820px]" data-delay="1">
+        Creemos que un buen producto se nota cuando
+        <span class="px-1" style="background:linear-gradient(180deg,transparent 60%,#F5C8B0 60%);">desaparece</span>
+        en el uso. Diseñamos para personas reales, escribimos código que se
+        sostiene en el tiempo, y elegimos la <span class="text-accent">claridad</span>
+        antes que la sorpresa.<br><br>
+        Trabajamos en equipos chicos y conectados. Investigamos, prototipamos,
+        ajustamos. Nada se entrega sin haber pasado por el usuario primero.
+      </p>
+    </section>
+
+    <!-- ============ EQUIPO ============ -->
+    <section class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto" id="equipo" data-screen-label="Equipo">
+      <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end mb-12 pb-5 border-b border-line-soft">
+        <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">03 / Equipo</span>
+        <h2 class="font-sans font-medium text-[clamp(40px,6vw,88px)] tracking-[-0.04em] leading-[0.98] text-balance">El equipo detrás<br>de cada proyecto.</h2>
+        <p class="text-[15px] text-ink-mute max-w-[320px] leading-[1.5] mb-2">Cinco perfiles complementarios. UX, UI, código, research y marketing — todo bajo el mismo techo.</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+
+        <article class="reveal team-card flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
+            <img src="img/rosario%20presedo.jpg" alt="Foto de Rosario Presedo" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
+            <span>01</span><span>Founder</span>
+          </div>
+          <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Rosario Presedo</h3>
+          <p class="text-[13px] text-ink-mute leading-[1.4]">Desarrolladora<br>Front-end</p>
+          <a class="self-start mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink inline-flex items-center gap-1.5 pb-1 border-b border-ink transition hover:text-accent hover:border-accent" href="https://github.com/mrosariopresedo/portfolio-presedo-nexo-studio" target="_blank" rel="noopener noreferrer">Ver portfolio <span class="text-sm">↗</span></a>
+        </article>
+
+        <article class="reveal team-card flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="1">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
+            <img src="img/lucia%20gavilanes.jpeg" alt="Foto de Lucía Gavilanes" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
+            <span>02</span><span>Design</span>
+          </div>
+          <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Lucía Gavilanes</h3>
+          <p class="text-[13px] text-ink-mute leading-[1.4]">Diseñadora UI</p>
+          <a class="self-start mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink inline-flex items-center gap-1.5 pb-1 border-b border-ink transition hover:text-accent hover:border-accent" href="https://luligavilanes.github.io/proyecto1jueves/" target="_blank" rel="noopener noreferrer">Ver portfolio <span class="text-sm">↗</span></a>
+        </article>
+
+        <article class="reveal team-card flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="2">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
+            <img src="img/valentina%20martins.jpeg" alt="Foto de Valentina Martins" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
+            <span>03</span><span>Design</span>
+          </div>
+          <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Valentina Martins</h3>
+          <p class="text-[13px] text-ink-mute leading-[1.4]">Diseñadora UX</p>
+          <a class="self-start mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink inline-flex items-center gap-1.5 pb-1 border-b border-ink transition hover:text-accent hover:border-accent" href="https://valmartins222.github.io/PROYECTO.P2/" target="_blank" rel="noopener noreferrer">Ver portfolio <span class="text-sm">↗</span></a>
+        </article>
+
+        <article class="reveal team-card flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="3">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
+            <img src="img/martina%20sama.jpeg" alt="Foto de Martina Sama" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
+            <span>04</span><span>Research</span>
+          </div>
+          <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Martina Sama</h3>
+          <p class="text-[13px] text-ink-mute leading-[1.4]">User<br>Research</p>
+          <a class="self-start mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink inline-flex items-center gap-1.5 pb-1 border-b border-ink transition hover:text-accent hover:border-accent" href="https://martinasama2005.github.io/proyecto1jueves/" target="_blank" rel="noopener noreferrer">Ver portfolio <span class="text-sm">↗</span></a>
+        </article>
+
+        <article class="reveal team-card flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="4">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
+            <img src="img/mora%20raimondo.jpeg" alt="Foto de Mora Raimondo" loading="lazy" class="w-full h-full object-cover">
+          </div>
+          <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
+            <span>05</span><span>Growth</span>
+          </div>
+          <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Mora Raimondo</h3>
+          <p class="text-[13px] text-ink-mute leading-[1.4]">Marketing<br>Digital</p>
+          <a class="self-start mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink inline-flex items-center gap-1.5 pb-1 border-b border-ink transition hover:text-accent hover:border-accent" href="https://moraraimondo-cyber.github.io/proyecto1jueves/" target="_blank" rel="noopener noreferrer">Ver portfolio <span class="text-sm">↗</span></a>
+        </article>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============ FOOTER ============ -->
+  <footer class="relative z-10 mt-16 border-t border-line-soft bg-cream-soft px-[clamp(20px,5vw,56px)] pt-16 pb-6" data-screen-label="Footer">
+    <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-line-soft">
+      <div>
+        <a href="index.html" class="flex items-center gap-3">
+          <svg class="w-8 h-8" viewBox="0 0 40 40" fill="none" aria-hidden="true">
+            <path d="M6 6 L34 34" stroke="#15233F" stroke-width="5.5" stroke-linecap="square"/>
+            <path d="M34 6 L6 34" stroke="#E85F25" stroke-width="5.5" stroke-linecap="square"/>
+            <circle cx="20" cy="20" r="5.2" fill="#F2EDE3" stroke="#15233F" stroke-width="1.5"/>
+            <circle cx="20" cy="20" r="2.4" fill="#E85F25"/>
+          </svg>
+          <span class="font-sans font-semibold text-base tracking-tight text-ink">Nexo<span class="font-medium text-ink-mute ml-1">Studio</span></span>
         </a>
-        <button class="hamburger" id="hamburger" aria-label="Abrir menú">&#9776;</button>
-        <nav id="nav-menu">
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="servicios.html">Servicios</a></li>
-                <li><a href="proyectos.html">Proyectos</a></li>
-                <li><a href="contacto.html">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+        <p class="mt-4 text-lg text-ink-soft leading-[1.4] max-w-[360px]">Diseño + tecnología, en un solo equipo. <br>Buenos Aires, Argentina.</p>
+      </div>
+      <div>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-faint mb-4 font-medium">Navegación</h4>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5">
+          <li><a href="index.html" class="text-sm text-ink hover:text-accent transition">Inicio</a></li>
+          <li><a href="servicios.html" class="text-sm text-ink hover:text-accent transition">Servicios</a></li>
+          <li><a href="proyectos.html" class="text-sm text-ink hover:text-accent transition">Proyectos</a></li>
+          <li><a href="contacto.html" class="text-sm text-ink hover:text-accent transition">Contacto</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-faint mb-4 font-medium">Servicios</h4>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5">
+          <li><a href="servicios.html" class="text-sm text-ink hover:text-accent transition">Diseño UX/UI</a></li>
+          <li><a href="servicios.html" class="text-sm text-ink hover:text-accent transition">Front-end</a></li>
+          <li><a href="servicios.html" class="text-sm text-ink hover:text-accent transition">User Research</a></li>
+          <li><a href="servicios.html" class="text-sm text-ink hover:text-accent transition">Marketing</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4 class="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-faint mb-4 font-medium">Contacto</h4>
+        <ul class="list-none p-0 m-0 flex flex-col gap-2.5">
+          <li><a href="mailto:hola@nexostudio.com" class="text-sm text-ink hover:text-accent transition">hola@nexostudio.com</a></li>
+          <li><a href="contacto.html" class="text-sm text-ink hover:text-accent transition">Formulario</a></li>
+        </ul>
+      </div>
+    </div>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <div class="hero-text">
-                    <p class="hero-tagline">Design + Tech Studio</p>
-                    <div class="hero-intro">
-                        <h1 class="hero-titulo">Convertimos marcas en <span>experiencias digitales</span></h1>
-                    </div>
-                    <p class="hero-lead">Diseño y desarrollo para equipos que buscan crecer con tecnologia y claridad.</p>
-                    <div class="hero-ctas">
-                        <a href="contacto.html" class="boton-cta">Hablemos de tu proyecto →</a>
-                        <a href="servicios.html" class="boton-secundario">Ver servicios</a>
-                    </div>
-                    <p class="hero-meta">Estrategia, UX/UI y desarrollo front-end en un solo equipo.</p>
-                </div>
-                <div class="hero-graphic">
-                    <div class="hero-mockup">
-                        <div class="mockup-header">
-                            <span class="mockup-dot"></span>
-                            <span class="mockup-dot"></span>
-                            <span class="mockup-dot"></span>
-                        </div>
-                        <div class="mockup-body">
-                            <div class="mockup-card">
-                                <div class="mockup-title">Dashboard de proyecto</div>
-                                <div class="mockup-row">
-                                    <span class="mockup-pill">UX Research</span>
-                                    <span class="mockup-status">En progreso</span>
-                                </div>
-                                <div class="mockup-bar"></div>
-                            </div>
-                            <div class="mockup-card alt">
-                                <div class="mockup-title">Flujos y prototipos</div>
-                                <div class="mockup-row">
-                                    <span class="mockup-pill">UI Kit</span>
-                                    <span class="mockup-status">Listo</span>
-                                </div>
-                                <div class="mockup-bar"></div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <div class="max-w-[1280px] mx-auto mt-12 flex items-baseline gap-[0.05em] font-sans font-medium text-[clamp(80px,18vw,260px)] tracking-[-0.06em] leading-[0.9] text-ink select-none" aria-hidden="true">
+      N<span class="footer-wordmark-italic">e</span>xo<span class="inline-block w-[0.18em] h-[0.18em] rounded-full bg-accent self-end ml-[-0.05em] mb-[0.1em]"></span>
+    </div>
 
-        <section class="metricas">
-            <div class="metrica">
-                <h3>5 integrantes</h3>
-                <p>Equipo multidisciplinario</p>
-            </div>
-            <div class="metrica">
-                <h3>4 servicios</h3>
-                <p>De investigacion a ejecucion</p>
-            </div>
-            <div class="metrica">
-                <h3>100%</h3>
-                <p>Enfoque centrado en el usuario</p>
-            </div>
-        </section>
+    <div class="max-w-[1280px] mx-auto mt-6 flex flex-wrap justify-between items-center gap-5 font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">
+      <span>© 2026 Nexo Studio</span>
+      <span>DDW1C26 · Grupo 02</span>
+      <span>Hecho con código y café</span>
+    </div>
+  </footer>
 
-        <section class="manifesto">
-            <p>Construimos productos digitales con mirada estratégica, diseño claro y tecnología sólida. Trabajamos con equipos que buscan diferenciarse, crecer y conectarse mejor con sus usuarios.</p>
-        </section>
-
-        <h2>Portfolio del Equipo</h2>
-        <p>Conocé a los 5 integrantes de Nexo Studio. Hacé clic en "Ver Perfil" para acceder al portfolio individual de cada uno.</p>
-
-        <section class="portfolio-section">
-
-            <div class="card">
-                <div class="card-foto">
-                    <img src="img/rosario%20presedo.jpg" alt="Foto de Rosario Presedo" loading="lazy">
-                </div>
-                <h3>Rosario Presedo</h3>
-                <p class="rol">Desarrolladora Front-end</p>
-                <a href="https://github.com/mrosariopresedo/portfolio-presedo-nexo-studio" target="_blank" rel="noopener noreferrer">Ver Perfil →</a>
-            </div>
-
-            <div class="card">
-                <div class="card-foto">
-                    <img src="img/lucia%20gavilanes.jpeg" alt="Foto de Lucía Gavilanes" loading="lazy">
-                </div>
-                <h3>Lucía Gavilanes</h3>
-                <p class="rol">Diseñadora UI</p>
-                <a href="https://luligavilanes.github.io/proyecto1jueves/" target="_blank" rel="noopener noreferrer">Ver Perfil →</a>
-            </div>
-
-            <div class="card">
-                <div class="card-foto">
-                    <img src="img/valentina%20martins.jpeg" alt="Foto de Valentina Martins" loading="lazy">
-                </div>
-                <h3>Valentina Martins</h3>
-                <p class="rol">Diseñadora UX</p>
-                <a href="https://valmartins222.github.io/PROYECTO.P2/" target="_blank" rel="noopener noreferrer">Ver Perfil →</a>
-            </div>
-
-            <div class="card">
-                <div class="card-foto">
-                    <img src="img/martina%20sama.jpeg" alt="Foto de Martina Sama" loading="lazy">
-                </div>
-                <h3>Martina Sama</h3>
-                <p class="rol">Research / Investigación</p>
-                <a href="https://martinasama2005.github.io/proyecto1jueves/" target="_blank" rel="noopener noreferrer">Ver Perfil →</a>
-            </div>
-
-            <div class="card">
-                <div class="card-foto">
-                    <img src="img/mora%20raimondo.jpeg" alt="Foto de Mora Raimondo" loading="lazy">
-                </div>
-                <h3>Mora Raimondo</h3>
-                <p class="rol">Marketing</p>
-                <a href="https://moraraimondo-cyber.github.io/proyecto1jueves/" target="_blank" rel="noopener noreferrer">Ver Perfil →</a>
-            </div>
-
-        </section>
-    </main>
-
-    <footer>
-        <img src="img/isotipo.png" class="footer-isotipo" alt="Nexo Studio">
-        <p>© 2026 Nexo Studio. Todos los derechos reservados.</p>
-    </footer>
-
-    <script src="js/menu.js"></script>
+  <script src="js/menu.js"></script>
+  <script src="js/interactions.js"></script>
 </body>
 </html>
