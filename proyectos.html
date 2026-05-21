@@ -7,25 +7,13 @@
   <title>Proyectos · Nexo Studio</title>
   <link rel="icon" type="image/png" href="img/isotipo.png">
 
+  <!-- Preconnect para Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Tailwind CDN + config centralizada -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: { DEFAULT: '#F2EDE3', soft: '#ECE6D8', deep: '#E3DBC8' },
-            ink:   { DEFAULT: '#15233F', soft: '#2D3A56', mute: '#5C6680', faint: '#8E96A9' },
-            accent:{ DEFAULT: '#E85F25', deep: '#C9491A', soft: '#F5C8B0' },
-            line:  { DEFAULT: '#C9C0AC', soft: '#DDD4BE' },
-          },
-          fontFamily: {
-            sans: ['Geist', 'system-ui', 'sans-serif'],
-            mono: ['"Geist Mono"', 'monospace'],
-          },
-        },
-      },
-    };
-  </script>
+  <script src="js/tailwind.config.js"></script>
   <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body class="bg-cream text-ink font-sans antialiased overflow-x-hidden">
@@ -40,7 +28,7 @@
       </svg>
       <span class="font-sans font-semibold text-base tracking-tight text-ink">Nexo<span class="font-medium text-ink-mute ml-1">Studio</span></span>
     </a>
-    <button class="hamburger sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú">&#9776;</button>
+    <button class="hamburger sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
     <nav class="site-nav hidden sm:block" id="nav-menu">
       <ul class="flex items-center gap-2 list-none m-0 p-0">
         <li><a href="index.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Inicio</a></li>
@@ -53,41 +41,220 @@
 
   <main class="relative z-10">
 
-    <!-- ============ EMPTY STATE ============ -->
-    <section class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1000px] mx-auto grid md:grid-cols-2 gap-12 items-center" data-screen-label="Proyectos vacío">
-      <div class="reveal">
+    <!-- ============ INTRO ============ -->
+    <section class="px-[clamp(20px,5vw,56px)] pt-20 pb-10 max-w-[1280px] mx-auto" data-screen-label="Proyectos intro">
+      <div class="reveal max-w-[760px]">
         <span class="font-mono text-[11px] uppercase tracking-[0.18em] text-ink-mute inline-flex items-center gap-3">
           <span class="inline-block w-7 h-px bg-ink-mute"></span>
-          Proyectos · Próximamente
+          Proyectos · 2026
         </span>
-        <h1 class="mt-6 font-sans font-medium text-[clamp(48px,7vw,112px)] tracking-[-0.04em] leading-[0.98] text-balance">
-          Trabajando<br>
-          en algo <span class="text-accent">nuevo</span>.
+        <h1 class="mt-6 font-sans font-medium text-[clamp(48px,7vw,104px)] tracking-[-0.04em] leading-[0.98] text-balance">
+          Casos de <span class="accent-underline">estudio</span>,<br>
+          uno por uno.
         </h1>
-        <p class="mt-5 font-sans text-[clamp(20px,2.2vw,28px)] leading-[1.3] text-ink-soft max-w-[480px]">
-          Estamos terminando los primeros casos de estudio. Mientras tanto,
-          podés conocer al equipo o escribirnos para tu proyecto.
+        <p class="mt-5 font-sans text-[clamp(18px,1.8vw,24px)] leading-[1.35] text-ink-soft max-w-[560px]">
+          Cada caso documenta el proceso completo: investigación, decisiones de diseño,
+          sistema y entregables. Empezamos con TIM.
         </p>
-        <div class="mt-6 flex gap-3.5 flex-wrap">
-          <a href="contacto.html" class="group inline-flex items-center gap-2.5 bg-accent text-white font-medium text-[15px] tracking-tight px-7 py-4 rounded-full transition-all duration-300 hover:bg-accent-deep hover:-translate-y-0.5">
-            Iniciar conversación
-            <span class="text-xl transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-          </a>
-          <a href="index.html#equipo" class="group inline-flex items-center gap-2.5 border border-line text-ink font-medium text-[15px] tracking-tight px-7 py-4 rounded-full transition-all duration-300 hover:bg-ink hover:text-cream hover:border-ink hover:-translate-y-0.5">
-            Ver al equipo
-            <span class="text-xl transition-transform duration-300 group-hover:translate-x-1.5">→</span>
-          </a>
+      </div>
+    </section>
+
+    <!-- ============ CASO 01 — TIM ============ -->
+    <section class="px-[clamp(20px,5vw,56px)] pb-20 max-w-[1280px] mx-auto" data-screen-label="Caso TIM">
+
+      <!-- Header del caso -->
+      <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end mb-10 pb-5 border-b border-line-soft">
+        <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">01 / Caso de estudio</span>
+        <h2 class="font-sans font-medium text-[clamp(32px,4.6vw,64px)] tracking-[-0.035em] leading-[1] text-balance">Terminal Inteligente<br>de Mendoza.</h2>
+        <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute inline-flex items-center gap-2 mb-2 self-end">
+          <span class="w-1.5 h-1.5 rounded-full bg-accent" style="animation: pulse 1.8s cubic-bezier(.2,.8,.2,1) infinite;"></span>
+          Publicado · Mayo 2026
+        </span>
+      </div>
+
+      <!-- Bloque principal: copy + preview -->
+      <div class="grid lg:grid-cols-[1fr_1.15fr] gap-10 lg:gap-16 items-start">
+
+        <!-- Lado izquierdo: copy + meta + CTAs -->
+        <div class="reveal flex flex-col gap-8">
+          <p class="font-sans text-[clamp(20px,2.1vw,26px)] leading-[1.3] text-ink text-balance">
+            Diseño web del centro de transporte digital de Mendoza:
+            <span class="text-ink-mute">cinco líneas, +200 salidas diarias y una arquitectura plana pensada para turistas, estudiantes y adultos mayores.</span>
+          </p>
+
+          <!-- Meta grid -->
+          <dl class="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-5 pt-7 border-t border-line-soft">
+            <div class="flex flex-col gap-1.5">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint">Cliente</dt>
+              <dd class="font-sans font-medium text-[15px] text-ink leading-tight">TIM<br><span class="text-ink-mute font-normal text-[13px]">Mendoza, AR</span></dd>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint">Tipo</dt>
+              <dd class="font-sans font-medium text-[15px] text-ink leading-tight">Diseño web<br><span class="text-ink-mute font-normal text-[13px]">UX · UI Kit</span></dd>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint">Año</dt>
+              <dd class="font-sans font-medium text-[15px] text-ink leading-tight">2026<br><span class="text-ink-mute font-normal text-[13px]">Actividad 2</span></dd>
+            </div>
+            <div class="flex flex-col gap-1.5">
+              <dt class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint">Equipo</dt>
+              <dd class="font-sans font-medium text-[15px] text-ink leading-tight">5 personas<br><span class="text-ink-mute font-normal text-[13px]">Nexo Studio</span></dd>
+            </div>
+          </dl>
+
+          <!-- Tags -->
+          <ul class="flex flex-wrap gap-2 list-none p-0 m-0">
+            <li class="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-mute border border-line rounded-full px-3 py-1.5">Movilidad</li>
+            <li class="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-mute border border-line rounded-full px-3 py-1.5">Accesibilidad WCAG AA</li>
+            <li class="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-mute border border-line rounded-full px-3 py-1.5">Mobile-first</li>
+            <li class="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-mute border border-line rounded-full px-3 py-1.5">Sistema de diseño</li>
+          </ul>
+
+          <!-- CTAs -->
+          <div class="flex flex-col gap-3 pt-2">
+            <a href="https://www.figma.com/design/nBxnFJ0ZE88FZ88FiJNLRX/TIM---Terminal-Inteligente-de-Mendoza-%7C-Actividad-2-%7C-Nexo-Studio?node-id=24-593&amp;t=J8bLes3JCvDrrpRF-1" target="_blank" rel="noopener noreferrer" class="group inline-flex items-center justify-between gap-4 bg-ink text-cream font-medium text-[15px] tracking-tight px-6 py-4 rounded-full transition-all duration-300 hover:bg-accent hover:-translate-y-0.5">
+              <span class="inline-flex items-center gap-3">
+                <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-cream/60">A</span>
+                Ver prototipo en Figma
+              </span>
+              <span class="text-xl transition-transform duration-300 group-hover:translate-x-1.5">↗</span>
+            </a>
+            <a href="docs/Carpeta-Diseno-TIM.pdf" target="_blank" rel="noopener" class="group inline-flex items-center justify-between gap-4 border border-line text-ink font-medium text-[15px] tracking-tight px-6 py-4 rounded-full transition-all duration-300 hover:bg-ink hover:text-cream hover:border-ink hover:-translate-y-0.5">
+              <span class="inline-flex items-center gap-3">
+                <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint group-hover:text-cream/60">B</span>
+                Descargar Carpeta de Diseño
+              </span>
+              <span class="text-xl transition-transform duration-300 group-hover:translate-x-1.5">↓</span>
+            </a>
+            <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint inline-flex items-center gap-2 mt-1 ml-1">
+              <span class="w-1 h-1 rounded-full bg-ink-faint"></span>
+              Sitio desplegado · próximamente
+            </span>
+          </div>
+        </div>
+
+        <!-- Lado derecho: mock-up del proyecto -->
+        <div class="reveal lg:sticky lg:top-24" data-delay="2">
+
+          <!-- Browser frame -->
+          <div class="rounded-[14px] border border-line-soft bg-white overflow-hidden shadow-[0_30px_80px_-30px_rgba(21,35,63,0.25)]">
+            <!-- chrome -->
+            <div class="flex items-center gap-2 px-4 py-3 bg-cream-soft border-b border-line-soft">
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E3DBC8]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E3DBC8]"></span>
+              <span class="w-2.5 h-2.5 rounded-full bg-[#E3DBC8]"></span>
+              <span class="ml-3 font-mono text-[10px] text-ink-faint tracking-tight truncate">tim-mendoza.com.ar</span>
+            </div>
+
+            <!-- TIM mock content -->
+            <div class="tim-mock">
+              <!-- nav burgundy -->
+              <div class="tim-nav">
+                <span class="tim-logo">TIM</span>
+                <span class="tim-tag">Terminal Inteligente de Mendoza</span>
+                <ul>
+                  <li class="active">Larga Distancia</li>
+                  <li>Alta Montaña</li>
+                  <li>Ruta del Vino</li>
+                  <li>Aeropuerto</li>
+                  <li>Universitario</li>
+                </ul>
+                <span class="tim-acc">Accesibilidad</span>
+              </div>
+              <!-- hero -->
+              <div class="tim-hero">
+                <span class="tim-eyebrow">CENTRO DE TRANSPORTE · MENDOZA</span>
+                <h3>Tu viaje empieza aquí</h3>
+                <p>Horarios, destinos y servicios del Centro de Transporte de Mendoza en un solo lugar.</p>
+
+                <div class="tim-search">
+                  <div class="tim-field">
+                    <span class="tim-field-label">¿A DÓNDE VAS?</span>
+                    <span class="tim-field-value">Buenos Aires, Las Leñas, Aeropuerto…</span>
+                  </div>
+                  <div class="tim-field">
+                    <span class="tim-field-label">FECHA</span>
+                    <span class="tim-field-value">Mié 27 mayo</span>
+                  </div>
+                  <div class="tim-field">
+                    <span class="tim-field-label">SERVICIO</span>
+                    <span class="tim-field-value">Todos</span>
+                  </div>
+                  <button class="tim-btn">Buscar</button>
+                </div>
+
+                <div class="tim-stats">
+                  <div><strong>5</strong><span>destinos principales</span></div>
+                  <div><strong>+200</strong><span>salidas diarias</span></div>
+                  <div><strong>100%</strong><span>accesible para todos</span></div>
+                </div>
+              </div>
+
+              <!-- service cards strip -->
+              <div class="tim-services">
+                <div class="tim-svc-card">
+                  <div class="tim-svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#722F37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="14" rx="2"/><path d="M4 11h16M8 17v2M16 17v2"/><circle cx="8" cy="14" r="1" fill="#722F37"/><circle cx="16" cy="14" r="1" fill="#722F37"/></svg>
+                  </div>
+                  <span class="tim-svc-name">Larga Distancia</span>
+                  <span class="tim-svc-desc">Buenos Aires, Córdoba…</span>
+                </div>
+                <div class="tim-svc-card">
+                  <div class="tim-svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#722F37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 19l6-8 4 5 3-4 5 7H3z"/><circle cx="17" cy="6" r="1.5"/></svg>
+                  </div>
+                  <span class="tim-svc-name">Alta Montaña</span>
+                  <span class="tim-svc-desc">Uspallata, cordillera…</span>
+                </div>
+                <div class="tim-svc-card">
+                  <div class="tim-svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#722F37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="10" r="2"/><circle cx="13" cy="8" r="2"/><circle cx="13" cy="13" r="2"/><circle cx="9" cy="15" r="2"/><path d="M12 18v3M10 21h4"/></svg>
+                  </div>
+                  <span class="tim-svc-name">Ruta del Vino</span>
+                  <span class="tim-svc-desc">Maipú, Luján, Valle…</span>
+                </div>
+                <div class="tim-svc-card">
+                  <div class="tim-svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#722F37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 14l8-2 3-9 2 1-2 8 8-3 2 2-8 4-2 8-2-1 1-7-8 2z"/></svg>
+                  </div>
+                  <span class="tim-svc-name">Aeropuerto</span>
+                  <span class="tim-svc-desc">El Plumerillo</span>
+                </div>
+                <div class="tim-svc-card">
+                  <div class="tim-svc-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="#722F37" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-4 9 4-9 4-9-4z"/><path d="M7 11v4c0 1.7 2.2 3 5 3s5-1.3 5-3v-4"/></svg>
+                  </div>
+                  <span class="tim-svc-name">Universitario</span>
+                  <span class="tim-svc-desc">UNCuyo, UTN…</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- caption -->
+          <p class="mt-4 font-mono text-[10px] uppercase tracking-[0.1em] text-ink-faint flex items-center gap-2">
+            <span class="w-7 h-px bg-ink-faint"></span>
+            HOME · 1 de 6 pantallas diseñadas
+          </p>
         </div>
       </div>
 
-      <div class="reveal relative aspect-[4/3] rounded-[10px] bg-cream-soft border border-line-soft overflow-hidden" data-delay="2">
-        <!-- pseudo skeleton -->
-        <div class="absolute top-[25%] left-[10%] w-[60%] h-3 rounded-md bg-line-soft"></div>
-        <div class="absolute top-[32%] left-[10%] w-[40%] h-3 rounded-md bg-line-soft"></div>
-        <div class="absolute inset-0 shimmer-anim" style="background:linear-gradient(110deg, transparent 30%, rgba(232,95,37,0.18) 50%, transparent 70%);"></div>
-        <div class="absolute bottom-4 left-4 font-mono text-[10px] uppercase tracking-[0.12em] bg-ink text-cream px-3 py-1.5 rounded-full inline-flex items-center gap-2">
-          <span class="w-1.5 h-1.5 rounded-full bg-accent" style="animation: pulse 1.6s cubic-bezier(.2,.8,.2,1) infinite;"></span>
-          En preparación · 2026
+      <!-- Decisiones de diseño (3 columnas) -->
+      <div class="reveal grid sm:grid-cols-3 gap-8 mt-20 pt-10 border-t border-line-soft" data-delay="1">
+        <div class="flex flex-col gap-3">
+          <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-accent">Decisión 01</span>
+          <h4 class="font-sans font-medium text-xl leading-tight tracking-tight text-ink">Identidad cuyana</h4>
+          <p class="text-[14px] leading-[1.5] text-ink-mute">Borgoña <span class="font-mono text-ink">#722F37</span> como guía visual: vino, alta montaña, identidad regional. Solo en CTAs y headers; nunca satura.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-accent">Decisión 02</span>
+          <h4 class="font-sans font-medium text-xl leading-tight tracking-tight text-ink">Plano y predecible</h4>
+          <p class="text-[14px] leading-[1.5] text-ink-mute">Arquitectura de 2 niveles. El home resuelve el 80% del uso: buscar a dónde ir. Cinco servicios visibles desde el primer scroll.</p>
+        </div>
+        <div class="flex flex-col gap-3">
+          <span class="font-mono text-[10px] uppercase tracking-[0.12em] text-accent">Decisión 03</span>
+          <h4 class="font-sans font-medium text-xl leading-tight tracking-tight text-ink">Accesibilidad real</h4>
+          <p class="text-[14px] leading-[1.5] text-ink-mute">Contraste 4.5:1 mínimo, hit-target 44px, body 16px, ARIA en tablas de horarios. Pensado para luz solar fuerte y lectores de pantalla.</p>
         </div>
       </div>
     </section>
@@ -95,7 +262,7 @@
     <!-- ============ ROADMAP ============ -->
     <section class="px-[clamp(20px,5vw,56px)] py-16 max-w-[1280px] mx-auto" data-screen-label="Hoja de ruta">
       <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end mb-12 pb-5 border-b border-line-soft">
-        <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">01 / Hoja de ruta</span>
+        <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">02 / Hoja de ruta</span>
         <h2 class="font-sans font-medium text-[clamp(40px,6vw,88px)] tracking-[-0.04em] leading-[0.98] text-balance">Lo que viene<br>en los próximos meses.</h2>
         <p class="text-[15px] text-ink-mute max-w-[320px] leading-[1.5] mb-2">Compartimos en qué etapa está cada caso de estudio que vamos a publicar.</p>
       </div>
@@ -103,19 +270,19 @@
       <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
         <div class="reveal flex flex-col gap-2">
           <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-accent">Ahora</span>
-          <span class="font-sans font-medium text-xl leading-tight text-ink"><span class="text-accent mr-1">◆</span>Sitio de la consultora - en línea</span>
+          <span class="font-sans font-medium text-xl leading-tight text-ink"><span class="text-accent mr-1">◆</span>TIM — Carpeta y prototipo publicados</span>
         </div>
         <div class="reveal flex flex-col gap-2" data-delay="1">
           <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">Próximo mes</span>
-          <span class="font-sans font-medium text-xl leading-tight text-ink">Primer caso: UX research</span>
+          <span class="font-sans font-medium text-xl leading-tight text-ink">TIM — Sitio desplegado en producción</span>
         </div>
         <div class="reveal flex flex-col gap-2" data-delay="2">
           <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">Q3 · 2026</span>
-          <span class="font-sans font-medium text-xl leading-tight text-ink">Caso de UI Kit + sistema</span>
+          <span class="font-sans font-medium text-xl leading-tight text-ink">Segundo caso: UI Kit + sistema</span>
         </div>
         <div class="reveal flex flex-col gap-2" data-delay="3">
           <span class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">Q4 · 2026</span>
-          <span class="font-sans font-medium text-xl leading-tight text-ink">Caso de growth + analítica</span>
+          <span class="font-sans font-medium text-xl leading-tight text-ink">Tercer caso: growth + analítica</span>
         </div>
       </div>
     </section>
@@ -123,7 +290,7 @@
     <!-- ============ PORTFOLIOS INDIVIDUALES ============ -->
     <section class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto" data-screen-label="Portfolios individuales">
       <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end mb-12 pb-5 border-b border-line-soft">
-        <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">02 / Mientras tanto</span>
+        <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">03 / Mientras tanto</span>
         <h2 class="font-sans font-medium text-[clamp(40px,6vw,88px)] tracking-[-0.04em] leading-[0.98] text-balance">Mirá los portfolios<br>individuales del equipo.</h2>
         <p class="text-[15px] text-ink-mute max-w-[320px] leading-[1.5] mb-2">Cada integrante tiene su propio sitio con trabajos personales. Hacé clic para explorar.</p>
       </div>
@@ -131,8 +298,8 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
 
         <article class="reveal flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1">
-          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
-            <img src="img/rosario%20presedo.jpg" alt="Foto de Rosario Presedo" loading="lazy" class="w-full h-full object-cover">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <img src="img/rosario-presedo.jpg" alt="Foto de Rosario Presedo" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint"><span>01</span><span>Front-end</span></div>
           <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Rosario Presedo</h3>
@@ -141,8 +308,8 @@
         </article>
 
         <article class="reveal flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="1">
-          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
-            <img src="img/lucia%20gavilanes.jpeg" alt="Foto de Lucía Gavilanes" loading="lazy" class="w-full h-full object-cover">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <img src="img/lucia-gavilanes.jpeg" alt="Foto de Lucía Gavilanes" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint"><span>02</span><span>UI</span></div>
           <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Lucía Gavilanes</h3>
@@ -151,8 +318,8 @@
         </article>
 
         <article class="reveal flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="2">
-          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
-            <img src="img/valentina%20martins.jpeg" alt="Foto de Valentina Martins" loading="lazy" class="w-full h-full object-cover">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <img src="img/valentina-martins.jpeg" alt="Foto de Valentina Martins" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint"><span>03</span><span>UX</span></div>
           <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Valentina Martins</h3>
@@ -161,8 +328,8 @@
         </article>
 
         <article class="reveal flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="3">
-          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
-            <img src="img/martina%20sama.jpeg" alt="Foto de Martina Sama" loading="lazy" class="w-full h-full object-cover">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <img src="img/martina-sama.jpeg" alt="Foto de Martina Sama" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint"><span>04</span><span>Research</span></div>
           <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Martina Sama</h3>
@@ -171,8 +338,8 @@
         </article>
 
         <article class="reveal flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="4">
-          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
-            <img src="img/mora%20raimondo.jpeg" alt="Foto de Mora Raimondo" loading="lazy" class="w-full h-full object-cover">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <img src="img/mora-raimondo.jpeg" alt="Foto de Mora Raimondo" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint"><span>05</span><span>Marketing</span></div>
           <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Mora Raimondo</h3>

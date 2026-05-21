@@ -7,25 +7,13 @@
   <title>Contacto · Nexo Studio</title>
   <link rel="icon" type="image/png" href="img/isotipo.png">
 
+  <!-- Preconnect para Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Tailwind CDN + config centralizada -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: { DEFAULT: '#F2EDE3', soft: '#ECE6D8', deep: '#E3DBC8' },
-            ink:   { DEFAULT: '#15233F', soft: '#2D3A56', mute: '#5C6680', faint: '#8E96A9' },
-            accent:{ DEFAULT: '#E85F25', deep: '#C9491A', soft: '#F5C8B0' },
-            line:  { DEFAULT: '#C9C0AC', soft: '#DDD4BE' },
-          },
-          fontFamily: {
-            sans: ['Geist', 'system-ui', 'sans-serif'],
-            mono: ['"Geist Mono"', 'monospace'],
-          },
-        },
-      },
-    };
-  </script>
+  <script src="js/tailwind.config.js"></script>
   <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body class="bg-cream text-ink font-sans antialiased overflow-x-hidden">
@@ -40,7 +28,7 @@
       </svg>
       <span class="font-sans font-semibold text-base tracking-tight text-ink">Nexo<span class="font-medium text-ink-mute ml-1">Studio</span></span>
     </a>
-    <button class="hamburger sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú">&#9776;</button>
+    <button class="hamburger sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
     <nav class="site-nav hidden sm:block" id="nav-menu">
       <ul class="flex items-center gap-2 list-none m-0 p-0">
         <li><a href="index.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Inicio</a></li>

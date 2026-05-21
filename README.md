@@ -55,7 +55,7 @@ Página principal de Nexo Studio. Presenta la propuesta de valor de la consultor
 Describe los cuatro servicios que ofrece la consultora: **Diseño UX/UI**, **Desarrollo Front-end**, **User Research** y **Marketing Digital**. Cada servicio se presenta como una fila interactiva con número, título, descripción y stack de herramientas. Al hacer hover, la fila invierte sus colores y revela una fotografía ilustrativa. Al pie de la sección aparece un botón CTA que redirige al formulario de contacto.
 
 ### Proyectos (`proyectos.html`)
-Sección reservada para mostrar los proyectos realizados por el equipo. Actualmente muestra un mensaje de "próximamente" mientras se prepara el contenido.
+Presenta el primer caso de estudio del equipo: **Terminal Inteligente de Mendoza (TIM)**, el centro de transporte digital de Mendoza trabajado en la Actividad 2. Incluye una descripción del proyecto, grilla de metadatos (cliente, tipo, año, equipo), tags de disciplinas aplicadas, botones para ver el prototipo en Figma y descargar la Carpeta de Diseño, y un mock-up interactivo del sitio diseñado. Debajo se documentan las tres decisiones de diseño principales y una hoja de ruta con los próximos casos a publicar. La sección cierra con los portfolios individuales de los cinco integrantes del equipo.
 
 ### Contacto (`contacto.html`)
 Formulario de contacto con cinco campos: nombre, email, empresa/proyecto (opcional), servicio de interés y mensaje. Los campos obligatorios tienen validación HTML5 (`required`) y atributos de autocompletado. Incluye también la dirección de correo electrónico directa del estudio.
@@ -163,7 +163,7 @@ El uso de etiquetas semánticas mejora el **posicionamiento SEO** (los buscadore
 **Atributos de accesibilidad aplicados:**
 - `lang="es"` en `<html>` para indicar el idioma a los lectores de pantalla.
 - Atributo `alt` con texto descriptivo en todas las imágenes de personas (ej.: `"Foto de Rosario Presedo"`).
-- `aria-label="Abrir menú"` en el botón hamburger, que no tiene texto visible.
+- `aria-label="Abrir menú"` y `aria-expanded="false/true"` en el botón hamburger: el primero describe la acción al lector de pantalla (ya que el botón no tiene texto visible); el segundo informa si el menú está abierto o cerrado, y se actualiza dinámicamente con JavaScript.
 - `aria-hidden="true"` en los SVG decorativos del logotipo, para que no sean leídos como contenido.
 - Todos los enlaces externos usan `target="_blank"` acompañado de `rel="noopener noreferrer"`.
 - Cada página tiene su propio `<title>` y `<meta name="description">` para SEO.

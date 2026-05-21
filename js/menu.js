@@ -4,11 +4,11 @@
   const nav = document.getElementById('nav-menu');
   if (hamburger && nav) {
     hamburger.addEventListener('click', () => {
-      nav.classList.toggle('open');
-      // Asegurar visibilidad en mobile
-      if (nav.classList.contains('open')) {
-        nav.classList.remove('hidden');
-      }
+      const isOpen = nav.classList.toggle('open');
+      // toggle('hidden', false) muestra el nav; toggle('hidden', true) lo oculta
+      nav.classList.toggle('hidden', !isOpen);
+      // Actualizar estado accesible del botón
+      hamburger.setAttribute('aria-expanded', isOpen);
     });
   }
 

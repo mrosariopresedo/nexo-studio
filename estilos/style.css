@@ -1,5 +1,5 @@
 /* ============================================================
-   NEXO STUDIO - CSS complementario (lo que Tailwind no cubre)
+   NEXO STUDIO — CSS complementario (lo que Tailwind no cubre)
    El grueso del styling vive en clases utility de Tailwind.
    Acá solo: @font-faces, ruido/grano, keyframes y un par de
    patrones complejos (servicio hover, underline acento, form).
@@ -146,6 +146,155 @@ body::before {
 /* ---------- Fade up para mensaje de éxito del form ---------- */
 @keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .fade-up { animation: fade-up .5s cubic-bezier(.2,.8,.2,1); }
+
+/* ---------- TIM mock-up (preview del caso en proyectos.html) ---------- */
+.tim-mock { font-family: 'Inter', system-ui, sans-serif; color: #333; }
+.tim-mock * { box-sizing: border-box; }
+
+/* nav burgundy */
+.tim-nav {
+  background: #722F37;
+  color: #fff;
+  padding: 12px 18px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 10px;
+  font-weight: 700;
+}
+.tim-nav .tim-logo { font-size: 14px; font-weight: 800; letter-spacing: -0.02em; }
+.tim-nav .tim-tag { font-size: 9px; font-weight: 400; opacity: .8; letter-spacing: 0.02em; }
+.tim-nav ul { list-style: none; margin: 0 0 0 auto; padding: 0; display: flex; gap: 12px; font-weight: 700; font-size: 9.5px; }
+.tim-nav ul li { opacity: .85; }
+.tim-nav ul li.active { opacity: 1; border-bottom: 1.5px solid #fff; padding-bottom: 2px; }
+.tim-nav .tim-acc { border: 1px solid rgba(255,255,255,.7); border-radius: 6px; padding: 5px 10px; font-size: 9px; font-weight: 700; }
+
+/* hero burgundy */
+.tim-hero {
+  background: #722F37;
+  color: #fff;
+  padding: 28px 32px 32px;
+}
+.tim-hero .tim-eyebrow {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  opacity: .85;
+  display: block;
+  margin-bottom: 12px;
+}
+.tim-hero h3 {
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(26px, 3.4vw, 40px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin: 0 0 8px;
+  max-width: 360px;
+}
+.tim-hero > p {
+  font-size: 12px;
+  line-height: 1.45;
+  margin: 0 0 20px;
+  opacity: .9;
+  max-width: 320px;
+}
+
+/* search bar */
+.tim-search {
+  background: #fff;
+  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr auto;
+  gap: 0;
+  padding: 8px;
+  margin-bottom: 22px;
+  box-shadow: 0 12px 28px -8px rgba(0,0,0,.18);
+}
+.tim-search .tim-field {
+  padding: 8px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  border-right: 1px solid #F5EAEB;
+  min-width: 0;
+}
+.tim-search .tim-field:nth-child(3) { border-right: none; }
+.tim-search .tim-field-label {
+  font-size: 8.5px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: #888;
+}
+.tim-search .tim-field-value {
+  font-size: 11px;
+  font-weight: 600;
+  color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.tim-search .tim-btn {
+  background: #722F37;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 0 22px;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* stats */
+.tim-stats {
+  display: flex;
+  gap: 28px;
+  flex-wrap: wrap;
+}
+.tim-stats > div { display: flex; align-items: baseline; gap: 8px; font-size: 11px; opacity: .92; }
+.tim-stats strong { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
+
+/* service cards strip */
+.tim-services {
+  background: #fff;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+  padding: 18px 18px 24px;
+}
+.tim-svc-card {
+  border: 1px solid #DDD;
+  border-radius: 10px;
+  padding: 10px 9px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  background: #fff;
+}
+.tim-svc-icon {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #F5EAEB;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 4px;
+}
+.tim-svc-icon svg { width: 16px; height: 16px; }
+.tim-svc-name { font-size: 11px; font-weight: 700; color: #333; line-height: 1.1; }
+.tim-svc-desc { font-size: 9px; color: #888; line-height: 1.3; }
+
+@media (max-width: 720px) {
+  .tim-nav ul { display: none; }
+  .tim-nav .tim-tag { display: none; }
+  .tim-search { grid-template-columns: 1fr 1fr; }
+  .tim-search .tim-field:nth-child(3) { border-right: 1px solid #F5EAEB; }
+  .tim-search .tim-btn { grid-column: 1 / -1; padding: 10px; margin-top: 4px; }
+  .tim-services { grid-template-columns: repeat(2, 1fr); }
+  .tim-hero { padding: 20px; }
+}
 
 /* ---------- Nav móvil ---------- */
 @media (max-width: 640px) {

@@ -7,26 +7,13 @@
   <title>Nexo Studio</title>
   <link rel="icon" type="image/png" href="img/isotipo.png">
 
-  <!-- Tailwind CDN -->
+  <!-- Preconnect para Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Tailwind CDN + config centralizada -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: { DEFAULT: '#F2EDE3', soft: '#ECE6D8', deep: '#E3DBC8' },
-            ink:   { DEFAULT: '#15233F', soft: '#2D3A56', mute: '#5C6680', faint: '#8E96A9' },
-            accent:{ DEFAULT: '#E85F25', deep: '#C9491A', soft: '#F5C8B0' },
-            line:  { DEFAULT: '#C9C0AC', soft: '#DDD4BE' },
-          },
-          fontFamily: {
-            sans: ['Geist', 'system-ui', 'sans-serif'],
-            mono: ['"Geist Mono"', 'monospace'],
-          },
-        },
-      },
-    };
-  </script>
+  <script src="js/tailwind.config.js"></script>
 
   <link rel="stylesheet" href="estilos/style.css">
 </head>
@@ -44,7 +31,7 @@
       <span class="font-sans font-semibold text-base tracking-tight text-ink">Nexo<span class="font-medium text-ink-mute ml-1">Studio</span></span>
     </a>
 
-    <button class="hamburger sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú">&#9776;</button>
+    <button class="hamburger sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
 
     <nav class="site-nav hidden sm:block" id="nav-menu">
       <ul class="flex items-center gap-2 list-none m-0 p-0">
@@ -146,8 +133,8 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
 
         <article class="reveal team-card flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1">
-          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
-            <img src="img/rosario%20presedo.jpg" alt="Foto de Rosario Presedo" loading="lazy" class="w-full h-full object-cover">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <img src="img/rosario-presedo.jpg" alt="Foto de Rosario Presedo" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
             <span>01</span><span>Front-end</span>
@@ -158,8 +145,8 @@
         </article>
 
         <article class="reveal team-card flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="1">
-          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
-            <img src="img/lucia%20gavilanes.jpeg" alt="Foto de Lucía Gavilanes" loading="lazy" class="w-full h-full object-cover">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <img src="img/lucia-gavilanes.jpeg" alt="Foto de Lucía Gavilanes" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
             <span>02</span><span>Design</span>
@@ -170,8 +157,8 @@
         </article>
 
         <article class="reveal team-card flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="2">
-          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
-            <img src="img/valentina%20martins.jpeg" alt="Foto de Valentina Martins" loading="lazy" class="w-full h-full object-cover">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <img src="img/valentina-martins.jpeg" alt="Foto de Valentina Martins" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
             <span>03</span><span>Design</span>
@@ -182,8 +169,8 @@
         </article>
 
         <article class="reveal team-card flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="3">
-          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
-            <img src="img/martina%20sama.jpeg" alt="Foto de Martina Sama" loading="lazy" class="w-full h-full object-cover">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <img src="img/martina-sama.jpeg" alt="Foto de Martina Sama" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
             <span>04</span><span>Research</span>
@@ -194,8 +181,8 @@
         </article>
 
         <article class="reveal team-card flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1" data-delay="4">
-          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-400 hover:grayscale-0">
-            <img src="img/mora%20raimondo.jpeg" alt="Foto de Mora Raimondo" loading="lazy" class="w-full h-full object-cover">
+          <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <img src="img/mora-raimondo.jpeg" alt="Foto de Mora Raimondo" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
             <span>05</span><span>Growth</span>
@@ -267,3 +254,4 @@
   <script src="js/interactions.js"></script>
 </body>
 </html>
+                                                                                                                                                                                                                                                                                                                                                                        

@@ -7,25 +7,13 @@
   <title>Servicios · Nexo Studio</title>
   <link rel="icon" type="image/png" href="img/isotipo.png">
 
+  <!-- Preconnect para Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- Tailwind CDN + config centralizada -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            cream: { DEFAULT: '#F2EDE3', soft: '#ECE6D8', deep: '#E3DBC8' },
-            ink:   { DEFAULT: '#15233F', soft: '#2D3A56', mute: '#5C6680', faint: '#8E96A9' },
-            accent:{ DEFAULT: '#E85F25', deep: '#C9491A', soft: '#F5C8B0' },
-            line:  { DEFAULT: '#C9C0AC', soft: '#DDD4BE' },
-          },
-          fontFamily: {
-            sans: ['Geist', 'system-ui', 'sans-serif'],
-            mono: ['"Geist Mono"', 'monospace'],
-          },
-        },
-      },
-    };
-  </script>
+  <script src="js/tailwind.config.js"></script>
   <link rel="stylesheet" href="estilos/style.css">
 </head>
 <body class="bg-cream text-ink font-sans antialiased overflow-x-hidden">
@@ -40,7 +28,7 @@
       </svg>
       <span class="font-sans font-semibold text-base tracking-tight text-ink">Nexo<span class="font-medium text-ink-mute ml-1">Studio</span></span>
     </a>
-    <button class="hamburger sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú">&#9776;</button>
+    <button class="hamburger sm:hidden inline-flex items-center justify-center w-10 h-10 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
     <nav class="site-nav hidden sm:block" id="nav-menu">
       <ul class="flex items-center gap-2 list-none m-0 p-0">
         <li><a href="index.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Inicio</a></li>
@@ -101,7 +89,7 @@
           <h3 class="font-sans font-medium text-[clamp(28px,3.6vw,56px)] tracking-[-0.03em] leading-none">Diseño UX / UI</h3>
           <p class="servicio-desc text-sm text-ink-mute leading-[1.5] max-w-[440px] transition-colors">Interfaces intuitivas, accesibles y atractivas. Trabajamos centrados en el usuario para que cada experiencia fluya sin fricción.</p>
           <span class="servicio-meta font-mono text-[11px] uppercase tracking-[0.08em] text-ink-mute transition-colors">Figma · Auditoría · Sistemas</span>
-          <div class="servicio-img"><img src="img/dise%C3%B1o%20ux.jpg" alt="Imagen de diseño UX / UI" loading="lazy"></div>
+          <div class="servicio-img"><img src="img/diseno-ux.jpg" alt="Imagen de diseño UX / UI" loading="lazy"></div>
         </article>
 
         <article class="reveal servicio-row grid grid-cols-[80px_1fr_1.2fr_auto] gap-5 items-center py-8 border-b border-line-soft cursor-pointer" data-delay="1">
@@ -109,7 +97,7 @@
           <h3 class="font-sans font-medium text-[clamp(28px,3.6vw,56px)] tracking-[-0.03em] leading-none">Desarrollo front-end</h3>
           <p class="servicio-desc text-sm text-ink-mute leading-[1.5] max-w-[440px] transition-colors">Sitios robustos y escalables con tecnologías modernas. Velocidad, responsive y código que se mantiene en el tiempo.</p>
           <span class="servicio-meta font-mono text-[11px] uppercase tracking-[0.08em] text-ink-mute transition-colors">HTML · CSS · JS · React</span>
-          <div class="servicio-img"><img src="img/front%20end.jpg" alt="Imagen de desarrollo front-end" loading="lazy"></div>
+          <div class="servicio-img"><img src="img/front-end.jpg" alt="Imagen de desarrollo front-end" loading="lazy"></div>
         </article>
 
         <article class="reveal servicio-row grid grid-cols-[80px_1fr_1.2fr_auto] gap-5 items-center py-8 border-b border-line-soft cursor-pointer" data-delay="2">
@@ -117,7 +105,7 @@
           <h3 class="font-sans font-medium text-[clamp(28px,3.6vw,56px)] tracking-[-0.03em] leading-none">User research</h3>
           <p class="servicio-desc text-sm text-ink-mute leading-[1.5] max-w-[440px] transition-colors">Analizamos comportamientos reales para tomar decisiones basadas en datos. Optimizamos usabilidad en plataformas complejas.</p>
           <span class="servicio-meta font-mono text-[11px] uppercase tracking-[0.08em] text-ink-mute transition-colors">Entrevistas · Testing · Análisis</span>
-          <div class="servicio-img"><img src="img/user%20research.jpg" alt="Imagen de user research" loading="lazy"></div>
+          <div class="servicio-img"><img src="img/user-research.jpg" alt="Imagen de user research" loading="lazy"></div>
         </article>
 
         <article class="reveal servicio-row grid grid-cols-[80px_1fr_1.2fr_auto] gap-5 items-center py-8 border-b border-line-soft cursor-pointer" data-delay="3">
@@ -125,7 +113,7 @@
           <h3 class="font-sans font-medium text-[clamp(28px,3.6vw,56px)] tracking-[-0.03em] leading-none">Marketing digital</h3>
           <p class="servicio-desc text-sm text-ink-mute leading-[1.5] max-w-[440px] transition-colors">Estrategias de Meta Ads y posicionamiento digital orientadas a resultados. Visibilidad para proyectos que quieren crecer.</p>
           <span class="servicio-meta font-mono text-[11px] uppercase tracking-[0.08em] text-ink-mute transition-colors">Ads · SEO · Estrategia</span>
-          <div class="servicio-img"><img src="img/marketing%20digital.jpg" alt="Imagen de marketing digital" loading="lazy"></div>
+          <div class="servicio-img"><img src="img/marketing-digital.jpg" alt="Imagen de marketing digital" loading="lazy"></div>
         </article>
 
       </div>
@@ -230,3 +218,4 @@
   <script src="js/interactions.js"></script>
 </body>
 </html>
+                                                                                                                      
