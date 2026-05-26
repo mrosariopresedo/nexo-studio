@@ -1,4 +1,4 @@
-# Nexo Studio - Actividad 1
+# Nexo Studio
 
 Sitio web grupal de la consultora **Nexo Studio**, desarrollado para la materia Diseño y Desarrollo Web 1 - Comisión 26 (2026).
 
@@ -55,7 +55,7 @@ Página principal de Nexo Studio. Presenta la propuesta de valor de la consultor
 Describe los cuatro servicios que ofrece la consultora: **Diseño UX/UI**, **Desarrollo Front-end**, **User Research** y **Marketing Digital**. Cada servicio se presenta como una fila interactiva con número, título, descripción y stack de herramientas. Al hacer hover, la fila invierte sus colores y revela una fotografía ilustrativa. Al pie de la sección aparece un botón CTA que redirige al formulario de contacto.
 
 ### Proyectos (`proyectos.html`)
-Presenta el primer caso de estudio del equipo: **Terminal Inteligente de Mendoza (TIM)**, el centro de transporte digital de Mendoza trabajado en la Actividad 2. Incluye una descripción del proyecto, grilla de metadatos (cliente, tipo, año, equipo), tags de disciplinas aplicadas, botones para ver el prototipo en Figma y descargar la Carpeta de Diseño, y un mock-up interactivo del sitio diseñado. Debajo se documentan las tres decisiones de diseño principales y una hoja de ruta con los próximos casos a publicar. La sección cierra con los portfolios individuales de los cinco integrantes del equipo.
+Presenta el primer caso de estudio del equipo: **Terminal Inteligente de Mendoza (TIM)**, el centro de transporte digital de Mendoza. Incluye una descripción del proyecto, grilla de metadatos (cliente, tipo, año, equipo), tags de disciplinas aplicadas, botones para ver el prototipo en Figma y descargar el Documento de Proyecto, y un mock-up interactivo del sitio diseñado. Debajo se documentan las tres decisiones de diseño principales y la sub-sección **Líneas · 5 servicios**, una grilla con las cinco líneas del centro de transporte (Larga Distancia, Alta Montaña, Ruta del Vino, Aeropuerto, Universitario) y un enlace a la página individual que desarrolla cada integrante en GitHub Pages. La hoja de ruta del caso TIM muestra las etapas del proyecto: documento + UI Kit + prototipo publicados, cuatro líneas desplegadas, próxima implementación de la home en código y cierre con la integración final. La sección termina con los portfolios individuales de los cinco integrantes del equipo.
 
 ### Contacto (`contacto.html`)
 Formulario de contacto con cinco campos: nombre, email, empresa/proyecto (opcional), servicio de interés y mensaje. Los campos obligatorios tienen validación HTML5 (`required`) y atributos de autocompletado. Incluye también la dirección de correo electrónico directa del estudio.
