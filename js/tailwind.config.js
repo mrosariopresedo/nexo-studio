@@ -5,7 +5,7 @@ tailwind.config = {
     extend: {
       colors: {
         cream:  { DEFAULT: '#F2EDE3', soft: '#ECE6D8', deep: '#E3DBC8' },
-        ink:    { DEFAULT: '#15233F', soft: '#2D3A56', mute: '#5C6680', faint: '#8E96A9' },
+        ink:    { DEFAULT: '#15233F', soft: '#2D3A56', mute: '#5C6680', faint: '#6B7280' },
         accent: { DEFAULT: '#E85F25', deep: '#C9491A', soft: '#F5C8B0' },
         line:   { DEFAULT: '#C9C0AC', soft: '#DDD4BE' },
       },

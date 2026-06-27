@@ -21,6 +21,9 @@
 html { scroll-behavior: smooth; }
 body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
 
+/* ---------- Foco visible por teclado ---------- */
+a:focus-visible, button:focus-visible { outline: 2px solid #15233F; outline-offset: 2px; }
+
 /* ---------- Grano editorial (textura sutil sobre el fondo) ---------- */
 body::before {
   content: '';
