@@ -107,7 +107,7 @@ body::before {
   transform-origin: bottom;
   transition: transform .4s cubic-bezier(.2,.8,.2,1);
 }
-.servicio-row:hover { padding-left: 24px; padding-right: 24px; color: #F2EDE3; } /* se agranda y aclara */
+.servicio-row:hover { color: #F2EDE3; } /* se aclara al pasar el mouse (el padding del hover pasó a Tailwind: min-[960px]:hover:px-6 en servicios.html) */
 .servicio-row:hover::before { transform: scaleY(1); }               /* el fondo azul aparece */
 .servicio-row:hover .servicio-num { color: #E85F25; }               /* el número se pone naranja */
 .servicio-row:hover .servicio-desc,
@@ -129,11 +129,9 @@ body::before {
   box-shadow: 0 30px 60px rgba(0,0,0,.35);
 }
 .servicio-img img { width: 100%; height: 100%; object-fit: cover; }
-/* En pantallas chicas oculto la imagen flotante y anulo el "agrandado". */
-@media (max-width: 960px) {
-  .servicio-img { display: none; }
-  .servicio-row:hover { padding-left: 0; padding-right: 0; }
-}
+/* El responsive de este componente se resuelve con Tailwind en servicios.html:
+   la imagen se oculta con max-[960px]:hidden y el padding del hover solo se aplica
+   desde 960px con min-[960px]:hover:px-6. Por eso ya no hace falta una @media acá. */
 
 /* ---------- Logo "X": los dos trazos se dibujan al cargar ----------
    Cada trazo crece con scaleY (uno tras otro por el delay), y el
