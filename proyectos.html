@@ -18,6 +18,10 @@
 </head>
 <body class="bg-cream text-ink font-sans antialiased overflow-x-hidden">
 
+  <!-- NOTA: el HEADER, el NAV y el FOOTER son idénticos en las 4 páginas.
+       Están comentados en detalle en index.html. Acá comento lo propio de
+       Proyectos: el caso de estudio de TIM y su maqueta. -->
+
   <header class="site-header sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-line-soft px-[clamp(20px,5vw,56px)] py-4 flex items-center justify-between gap-6">
     <a href="index.html" class="flex items-center gap-3 shrink-0">
       <svg class="w-8 h-8 shrink-0" viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -82,7 +86,10 @@
             <span class="text-ink-mute">cinco líneas, +200 salidas diarias y una arquitectura plana pensada para turistas, estudiantes y adultos mayores.</span>
           </p>
 
-          <!-- Meta grid -->
+          <!-- Ficha técnica del proyecto con una LISTA DE DEFINICIONES:
+               <dl> = lista de definiciones, <dt> = término (Cliente, Tipo...) y
+               <dd> = su descripción. Es la etiqueta semántica correcta para pares
+               "campo: valor". -->
           <dl class="grid grid-cols-2 sm:grid-cols-4 gap-x-6 gap-y-5 pt-7 border-t border-line-soft">
             <div class="flex flex-col gap-1.5">
               <dt class="font-mono text-[10px] uppercase tracking-[0.12em] text-ink-faint">Cliente</dt>
@@ -110,7 +117,8 @@
             <li class="font-mono text-[10px] uppercase tracking-[0.1em] text-ink-mute border border-line rounded-full px-3 py-1.5">Sistema de diseño</li>
           </ul>
 
-          <!-- CTAs -->
+          <!-- Los 3 entregables del caso (A: Design System en Figma, B: PDF del
+               documento, C: home en vivo). Todos abren en pestaña nueva. -->
           <div class="flex flex-col gap-3 pt-2">
             <a href="https://www.figma.com/design/nBxnFJ0ZE88FZ88FiJNLRX/TIM---Terminal-Inteligente-de-Mendoza-%7C-Actividad-2-%7C-Nexo-Studio" target="_blank" rel="noopener" class="group inline-flex items-center justify-between gap-4 bg-ink text-cream font-medium text-[15px] tracking-tight px-6 py-4 rounded-full transition-all duration-300 hover:bg-accent hover:-translate-y-0.5">
               <span class="inline-flex items-center gap-3">
@@ -139,9 +147,12 @@
         <!-- Lado derecho: mock-up del proyecto -->
         <div class="reveal lg:sticky lg:top-24" data-delay="2">
 
-          <!-- Browser frame -->
+          <!-- MAQUETA de la home de TIM dentro de un "navegador" simulado.
+               Es una réplica estática (HTML + CSS con la clase .tim-mock, ver style.css),
+               NO la web real: sirve de vista previa del caso. Usa la paleta borgoña de TIM. -->
+          <!-- Browser frame: el marco tipo ventana de navegador -->
           <div class="rounded-[14px] border border-line-soft bg-white overflow-hidden shadow-[0_30px_80px_-30px_rgba(21,35,63,0.25)]">
-            <!-- chrome -->
+            <!-- chrome: la barra superior con los 3 puntitos y la URL -->
             <div class="flex items-center gap-2 px-4 py-3 bg-cream-soft border-b border-line-soft">
               <span class="w-2.5 h-2.5 rounded-full bg-[#E3DBC8]"></span>
               <span class="w-2.5 h-2.5 rounded-full bg-[#E3DBC8]"></span>
@@ -269,6 +280,9 @@
           <p class="text-[14px] text-ink-mute max-w-[300px] leading-[1.5] mb-1">Cada integrante desarrolla la línea que le corresponde. Los sitios se publican individualmente en GitHub Pages.</p>
         </div>
 
+        <!-- Las 5 líneas de TIM: cada <li> enlaza (externo, _blank + noopener) al sitio
+             que hizo cada integrante, publicado por separado en GitHub Pages.
+             Es un <ul> porque son una lista de servicios equivalentes. -->
         <ul class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4 list-none p-0 m-0">
 
           <li class="flex flex-col gap-2 p-5 border border-line-soft rounded-[10px] transition hover:border-ink hover:-translate-y-0.5 duration-300">
@@ -346,6 +360,8 @@
         <p class="text-[15px] text-ink-mute max-w-[320px] leading-[1.5] mb-2">Cada integrante tiene su propio sitio con trabajos personales. Hacé clic para explorar.</p>
       </div>
 
+      <!-- Portfolios individuales del equipo. Mismas tarjetas que la sección Equipo
+           de index.html (foto b/n que se colorea al hover + enlace externo). -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
 
         <article class="reveal flex flex-col gap-3 cursor-pointer transition-transform duration-300 hover:-translate-y-1">

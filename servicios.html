@@ -18,6 +18,10 @@
 </head>
 <body class="bg-cream text-ink font-sans antialiased overflow-x-hidden">
 
+  <!-- NOTA: el HEADER, el NAV y el FOOTER son idénticos en las 4 páginas.
+       Están comentados en detalle en index.html. Acá solo comento lo propio
+       de la página de Servicios. -->
+
   <header class="site-header sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-line-soft px-[clamp(20px,5vw,56px)] py-4 flex items-center justify-between gap-6">
     <a href="index.html" class="flex items-center gap-3 shrink-0">
       <svg class="w-8 h-8 shrink-0" viewBox="0 0 40 40" fill="none" aria-hidden="true">
@@ -66,6 +70,8 @@
             Empezar un proyecto
             <span class="text-xl transition-transform duration-300 group-hover:translate-x-1.5">→</span>
           </a>
+          <!-- href="#servicios": ancla interna. Lleva a la sección con id="servicios"
+               más abajo en esta misma página (con scroll suave, por el html del CSS). -->
           <a href="#servicios" class="group inline-flex items-center gap-2.5 border border-line text-ink font-medium text-[15px] tracking-tight px-7 py-4 rounded-full transition-all duration-300 hover:bg-ink hover:text-cream hover:border-ink hover:-translate-y-0.5">
             Ver los 4 servicios
             <span class="text-xl transition-transform duration-300 group-hover:translate-y-1.5">↓</span>
@@ -82,6 +88,11 @@
         <p class="text-[15px] text-ink-mute max-w-[320px] leading-[1.5] mb-2">Cuatro disciplinas que se piensan juntas, no por separado. Eso es lo que las hace funcionar.</p>
       </div>
 
+      <!-- Lista de 4 servicios como filas. Cada fila es una .servicio-row: al pasar
+           el mouse se llena de azul, el texto se aclara y aparece la imagen de la
+           derecha (toda esa lógica de hover está en style.css). Es un <article>
+           porque cada servicio se entiende por sí solo.
+           La grilla md:[80px_1fr_1.2fr_auto] = número | título | descripción | meta. -->
       <div class="flex flex-col border-t border-ink">
 
         <article class="reveal servicio-row grid grid-cols-1 md:grid-cols-[80px_1fr_1.2fr_auto] gap-5 items-center py-8 border-b border-line-soft cursor-pointer">
@@ -89,8 +100,9 @@
           <h3 class="font-sans font-medium text-[clamp(28px,3.6vw,56px)] tracking-[-0.03em] leading-none">Diseño UX / UI</h3>
           <p class="servicio-desc text-sm text-ink-mute leading-[1.5] max-w-[440px] transition-colors">Interfaces intuitivas, accesibles y atractivas. Trabajamos centrados en el usuario para que cada experiencia fluya sin fricción.</p>
           <span class="servicio-meta font-mono text-[11px] uppercase tracking-[0.08em] text-ink-mute transition-colors">Figma · Auditoría · Sistemas</span>
+          <!-- La imagen que aparece a la derecha en el hover (invisible por defecto). -->
           <div class="servicio-img"><img src="img/diseno-ux.jpg" alt="Imagen de diseño UX / UI" loading="lazy"></div>
-        </article>
+        </article><!-- Las 3 filas siguientes son iguales; cambian número, nombre, texto e imagen. -->
 
         <article class="reveal servicio-row grid grid-cols-1 md:grid-cols-[80px_1fr_1.2fr_auto] gap-5 items-center py-8 border-b border-line-soft cursor-pointer" data-delay="1">
           <span class="servicio-num font-mono text-xs text-ink-faint tracking-[0.1em] transition-colors">→ 02</span>

@@ -1,34 +1,45 @@
 /* ============================================================
-   NEXO STUDIO - CSS complementario (lo que Tailwind no cubre)
-   El grueso del styling vive en clases utility de Tailwind.
-   Acá solo: @font-faces, ruido/grano, keyframes y un par de
-   patrones complejos (servicio hover, underline acento, form).
+   NEXO STUDIO — CSS complementario (lo que Tailwind no cubre)
+   El grueso del estilo vive en clases utility de Tailwind (en el HTML)
+   y en los tokens de js/tailwind.config.js. Acá va solo lo que Tailwind
+   no puede hacer con una clase: importar fuentes, la textura de grano,
+   las animaciones (@keyframes) y algunos patrones (hover de servicios,
+   subrayado de acento, formulario y el mock-up de TIM).
    ============================================================ */
 
+/* ---------- Importar tipografías de Google Fonts ----------
+   @import trae las fuentes que después nombro en tailwind.config.js.
+   Geist (cuerpo/títulos), Geist Mono (etiquetas) e Instrument Serif
+   (solo para la "e" en cursiva del logotipo grande del footer). */
 @import url('https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@1&display=swap');
 
-/* ---------- Footer wordmark con detalle editorial ---------- */
+/* ---------- Logotipo grande del footer: la "e" en cursiva serif ---------- */
 .footer-wordmark-italic {
   font-family: 'Instrument Serif', 'Times New Roman', serif;
   font-style: italic;
   font-weight: 400;
-  color: #E85F25;
+  color: #E85F25;            /* naranja de acento */
   letter-spacing: -0.02em;
 }
 
 /* ---------- Base ---------- */
-html { scroll-behavior: smooth; }
-body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+html { scroll-behavior: smooth; }  /* al hacer clic en un ancla (#servicios) baja suave */
+body { -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; } /* texto más nítido */
 
-/* ---------- Foco visible por teclado ---------- */
+/* ---------- Accesibilidad: foco visible por teclado ----------
+   Quien navega con Tab tiene que ver dónde está. Contorno azul tinta. */
 a:focus-visible, button:focus-visible { outline: 2px solid #15233F; outline-offset: 2px; }
 
-/* ---------- Grano editorial (textura sutil sobre el fondo) ---------- */
+/* ---------- Grano editorial (textura sutil sobre todo el fondo) ----------
+   Pseudo-elemento fijo que cubre la pantalla con un ruido casi invisible.
+   El ruido es un SVG embebido (filtro feTurbulence), no una imagen.
+   pointer-events:none => no molesta a los clics; mix-blend-mode:multiply
+   lo funde con el fondo. Es 100% decorativo. */
 body::before {
   content: '';
   position: fixed;
-  inset: 0;
+  inset: 0;                  /* atajo de top/right/bottom/left: 0 => cubre todo */
   pointer-events: none;
   z-index: 1;
   opacity: .35;
@@ -36,7 +47,11 @@ body::before {
   background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='180' height='180'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .08 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
 }
 
-/* ---------- Animación reveal al scroll ---------- */
+/* ---------- Aparición al scroll (efecto "reveal") ----------
+   Estado inicial: invisible y 20px más abajo. Cuando interactions.js
+   le agrega la clase .in, vuelve a su lugar con opacidad 1.
+   La transición hace el movimiento suave; los data-delay escalonan
+   la aparición de elementos vecinos (0.1s, 0.2s, etc.). */
 .reveal { opacity: 0; transform: translateY(20px); transition: opacity .8s cubic-bezier(.2,.8,.2,1), transform .8s cubic-bezier(.2,.8,.2,1); }
 .reveal.in { opacity: 1; transform: translateY(0); }
 .reveal[data-delay="1"] { transition-delay: .1s; }
@@ -44,7 +59,9 @@ body::before {
 .reveal[data-delay="3"] { transition-delay: .3s; }
 .reveal[data-delay="4"] { transition-delay: .4s; }
 
-/* ---------- Underline acento detrás del texto (hero) ---------- */
+/* ---------- Subrayado de acento detrás de una palabra (en los <h1>) ----------
+   Una barra naranja que se dibuja sola al cargar. Va DETRÁS del texto
+   (z-index -1) y se anima con scaleX de 0 a 1 (crece de izq. a der.). */
 .accent-underline { position: relative; display: inline-block; z-index: 0; }
 .accent-underline::after {
   content: '';
@@ -56,27 +73,31 @@ body::before {
   background: #E85F25;
   z-index: -1;
   border-radius: 2px;
-  transform-origin: left;
+  transform-origin: left;    /* crece desde la izquierda */
   animation: underline-in 1.2s cubic-bezier(.2,.8,.2,1) .4s both;
 }
 @keyframes underline-in { from { transform: scaleX(0); } to { transform: scaleX(1); } }
 
-/* ---------- Pulse (dot del CTA y del status) ---------- */
+/* ---------- Puntito que late (en el botón "Hablemos" y el estado) ----------
+   ::after agrega un círculo que pulsa (opacidad + escala) en bucle. */
 .dot-pulse { position: relative; }
 .dot-pulse::after {
   content: '';
   display: inline-block;
   width: 6px; height: 6px;
   border-radius: 50%;
-  background: currentColor;
+  background: currentColor;  /* toma el color del texto del botón */
   margin-left: 8px;
   animation: pulse 2s cubic-bezier(.2,.8,.2,1) infinite;
 }
 @keyframes pulse { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: .5; transform: scale(.8); } }
 
-/* ---------- Servicio row: hover invierte colores y revela imagen ---------- */
+/* ---------- Fila de servicio con hover que invierte colores (servicios.html) ----------
+   Al pasar el mouse por una fila: se llena de azul tinta de fondo, el
+   texto se aclara y aparece una imagen a la derecha. */
 .servicio-row { position: relative; transition: padding .3s cubic-bezier(.2,.8,.2,1); }
 .servicio-row::before {
+  /* El fondo azul que "sube" al hacer hover (scaleY de 0 a 1). Va detrás (z-index -1). */
   content: '';
   position: absolute;
   inset: 0;
@@ -86,70 +107,80 @@ body::before {
   transform-origin: bottom;
   transition: transform .4s cubic-bezier(.2,.8,.2,1);
 }
-.servicio-row:hover { padding-left: 24px; padding-right: 24px; color: #F2EDE3; }
-.servicio-row:hover::before { transform: scaleY(1); }
-.servicio-row:hover .servicio-num { color: #E85F25; }
+.servicio-row:hover { padding-left: 24px; padding-right: 24px; color: #F2EDE3; } /* se agranda y aclara */
+.servicio-row:hover::before { transform: scaleY(1); }               /* el fondo azul aparece */
+.servicio-row:hover .servicio-num { color: #E85F25; }               /* el número se pone naranja */
 .servicio-row:hover .servicio-desc,
 .servicio-row:hover .servicio-meta { color: #ECE6D8; }
-.servicio-row:hover .servicio-img { opacity: 1; transform: translateY(-50%) scale(1); }
+.servicio-row:hover .servicio-img { opacity: 1; transform: translateY(-50%) scale(1); } /* la imagen aparece */
 .servicio-img {
   position: absolute;
   right: 12%;
   top: 50%;
-  transform: translateY(-50%) scale(.9);
+  transform: translateY(-50%) scale(.9); /* centrada vertical y apenas achicada */
   width: 240px;
   height: 160px;
   border-radius: 10px;
   overflow: hidden;
-  opacity: 0;
+  opacity: 0;                /* invisible hasta el hover */
   pointer-events: none;
   transition: opacity .4s cubic-bezier(.2,.8,.2,1), transform .4s cubic-bezier(.2,.8,.2,1);
   z-index: 1;
   box-shadow: 0 30px 60px rgba(0,0,0,.35);
 }
 .servicio-img img { width: 100%; height: 100%; object-fit: cover; }
+/* En pantallas chicas oculto la imagen flotante y anulo el "agrandado". */
 @media (max-width: 960px) {
   .servicio-img { display: none; }
   .servicio-row:hover { padding-left: 0; padding-right: 0; }
 }
 
-/* ---------- Logo X stroke draw ---------- */
+/* ---------- Logo "X": los dos trazos se dibujan al cargar ----------
+   Cada trazo crece con scaleY (uno tras otro por el delay), y el
+   puntito naranja del centro aparece último. */
 @keyframes x-draw { from { transform: scaleY(0); opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
 .x-stroke-a { transform-origin: center; animation: x-draw 1.4s cubic-bezier(.2,.8,.2,1) .2s both; }
 .x-stroke-b { transform-origin: center; animation: x-draw 1.4s cubic-bezier(.2,.8,.2,1) .5s both; }
 @keyframes dot-in { from { transform: scale(0); opacity: 0; } to { transform: scale(1); opacity: 1; } }
 .x-dot { animation: dot-in .6s cubic-bezier(.2,.8,.2,1) 1.2s both; transform-origin: center; }
 
-/* ---------- Form floating labels + custom inputs ---------- */
+/* ---------- Campos del formulario (contacto.html) ----------
+   Inputs "minimalistas": sin caja, solo una línea abajo que se pone
+   naranja al enfocar. Tailwind no da este look, por eso va en CSS. */
 .field input,
 .field textarea {
   background: transparent;
   border: none;
-  border-bottom: 1px solid #C9C0AC;
+  border-bottom: 1px solid #C9C0AC;   /* la línea inferior */
   outline: none;
   transition: border-color .25s cubic-bezier(.2,.8,.2,1);
   font-family: 'Geist', sans-serif;
   color: #15233F;
-  font-size: 16px;
+  font-size: 16px;                    /* 16px: mínimo cómodo y evita el zoom en iOS */
   padding: 14px 0;
-  resize: vertical;
+  resize: vertical;                   /* el textarea solo se estira en vertical */
   width: 100%;
 }
 .field input::placeholder,
 .field textarea::placeholder { color: #8E96A9; font-size: 15px; }
 .field input:focus,
-.field textarea:focus { border-bottom-color: #E85F25; }
+.field textarea:focus { border-bottom-color: #E85F25; } /* al enfocar, la línea se pone naranja */
 .field textarea { min-height: 120px; }
 
-/* ---------- Fade up para mensaje de éxito del form ---------- */
+/* ---------- Aparición del mensaje de éxito del formulario ---------- */
 @keyframes fade-up { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
 .fade-up { animation: fade-up .5s cubic-bezier(.2,.8,.2,1); }
 
-/* ---------- TIM mock-up (preview del caso en proyectos.html) ---------- */
+/* ============================================================
+   MOCK-UP DE TIM (la maqueta del caso de estudio en proyectos.html)
+   Es una mini-réplica de la home de TIM dentro de un "navegador".
+   Usa su propia paleta borgoña (#722F37) para mostrar la identidad
+   del proyecto, distinta de la de Nexo Studio.
+   ============================================================ */
 .tim-mock { font-family: 'Inter', system-ui, sans-serif; color: #333; }
-.tim-mock * { box-sizing: border-box; }
+.tim-mock * { box-sizing: border-box; } /* el padding/borde no agranda las cajas */
 
-/* nav burgundy */
+/* nav borgoña de la maqueta */
 .tim-nav {
   background: #722F37;
   color: #fff;
@@ -164,10 +195,10 @@ body::before {
 .tim-nav .tim-tag { font-size: 9px; font-weight: 400; opacity: .8; letter-spacing: 0.02em; }
 .tim-nav ul { list-style: none; margin: 0 0 0 auto; padding: 0; display: flex; gap: 12px; font-weight: 700; font-size: 9.5px; }
 .tim-nav ul li { opacity: .85; }
-.tim-nav ul li.active { opacity: 1; border-bottom: 1.5px solid #fff; padding-bottom: 2px; }
+.tim-nav ul li.active { opacity: 1; border-bottom: 1.5px solid #fff; padding-bottom: 2px; } /* línea = servicio activo */
 .tim-nav .tim-acc { border: 1px solid rgba(255,255,255,.7); border-radius: 6px; padding: 5px 10px; font-size: 9px; font-weight: 700; }
 
-/* hero burgundy */
+/* hero borgoña de la maqueta */
 .tim-hero {
   background: #722F37;
   color: #fff;
@@ -184,7 +215,7 @@ body::before {
 .tim-hero h3 {
   font-family: 'Inter', system-ui, sans-serif;
   font-weight: 800;
-  font-size: clamp(26px, 3.4vw, 40px);
+  font-size: clamp(26px, 3.4vw, 40px); /* clamp: tamaño fluido según el ancho */
   line-height: 1.05;
   letter-spacing: -0.025em;
   margin: 0 0 8px;
@@ -198,7 +229,7 @@ body::before {
   max-width: 320px;
 }
 
-/* search bar */
+/* barra de búsqueda de la maqueta (grilla de 4 columnas: 3 campos + botón) */
 .tim-search {
   background: #fff;
   border-radius: 10px;
@@ -214,10 +245,10 @@ body::before {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  border-right: 1px solid #F5EAEB;
+  border-right: 1px solid #F5EAEB; /* divisor entre campos */
   min-width: 0;
 }
-.tim-search .tim-field:nth-child(3) { border-right: none; }
+.tim-search .tim-field:nth-child(3) { border-right: none; } /* el último campo no lleva divisor */
 .tim-search .tim-field-label {
   font-size: 8.5px;
   font-weight: 700;
@@ -228,9 +259,9 @@ body::before {
   font-size: 11px;
   font-weight: 600;
   color: #333;
-  white-space: nowrap;
+  white-space: nowrap;       /* el texto largo no baja de línea... */
   overflow: hidden;
-  text-overflow: ellipsis;
+  text-overflow: ellipsis;   /* ...se corta con "..." */
 }
 .tim-search .tim-btn {
   background: #722F37;
@@ -244,7 +275,7 @@ body::before {
   cursor: pointer;
 }
 
-/* stats */
+/* estadísticas de la maqueta (5 destinos, +200 salidas, etc.) */
 .tim-stats {
   display: flex;
   gap: 28px;
@@ -253,7 +284,7 @@ body::before {
 .tim-stats > div { display: flex; align-items: baseline; gap: 8px; font-size: 11px; opacity: .92; }
 .tim-stats strong { font-size: 22px; font-weight: 800; letter-spacing: -0.02em; }
 
-/* service cards strip */
+/* tira de tarjetas de servicio de la maqueta (5 columnas) */
 .tim-services {
   background: #fff;
   display: grid;
@@ -284,22 +315,26 @@ body::before {
 .tim-svc-name { font-size: 11px; font-weight: 700; color: #333; line-height: 1.1; }
 .tim-svc-desc { font-size: 9px; color: #888; line-height: 1.3; }
 
+/* La maqueta también es responsive: se reacomoda en pantallas chicas. */
 @media (max-width: 720px) {
   .tim-nav ul { display: none; }
   .tim-nav .tim-tag { display: none; }
-  .tim-search { grid-template-columns: 1fr 1fr; }
+  .tim-search { grid-template-columns: 1fr 1fr; }            /* de 4 columnas a 2 */
   .tim-search .tim-field:nth-child(3) { border-right: 1px solid #F5EAEB; }
-  .tim-search .tim-btn { grid-column: 1 / -1; padding: 10px; margin-top: 4px; }
-  .tim-services { grid-template-columns: repeat(2, 1fr); }
+  .tim-search .tim-btn { grid-column: 1 / -1; padding: 10px; margin-top: 4px; } /* el botón ocupa todo el ancho */
+  .tim-services { grid-template-columns: repeat(2, 1fr); }   /* de 5 tarjetas a 2 por fila */
   .tim-hero { padding: 20px; }
 }
 
-/* ---------- Nav móvil ---------- */
+/* ---------- Menú móvil (nav de Nexo Studio en pantallas chicas) ----------
+   Debajo de 640px el nav se oculta y se despliega con la clase .open
+   (que agrega menu.js al tocar la hamburguesa). Único mecanismo:
+   acá se decide si se ve o no. */
 @media (max-width: 640px) {
   nav.site-nav { position: absolute; top: 100%; left: 0; right: 0; background: #F2EDE3; border-bottom: 1px solid #DDD4BE; padding: 16px 24px; display: none; }
-  nav.site-nav.open { display: block; }
-  nav.site-nav ul { flex-direction: column; align-items: stretch; gap: 0; }
+  nav.site-nav.open { display: block; }                       /* .open => visible */
+  nav.site-nav ul { flex-direction: column; align-items: stretch; gap: 0; } /* links en vertical */
   nav.site-nav a { padding: 14px 0 !important; border-bottom: 1px solid #DDD4BE; border-radius: 0 !important; }
   nav.site-nav a.active { background: transparent !important; color: #E85F25 !important; }
-  .nav-cta { display: none !important; }
+  .nav-cta { display: none !important; } /* el botón "Hablemos" no se repite en el menú móvil */
 }

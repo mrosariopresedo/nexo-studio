@@ -1,26 +1,33 @@
 <!DOCTYPE html>
-<html lang="es">
+<!-- HTML5. El <head> son metadatos (no se ven); el <body>, el contenido visible. -->
+<html lang="es"><!-- idioma español: accesibilidad + SEO -->
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Nexo Studio - conectamos tecnología y personas. Diseño UX/UI, desarrollo front-end, user research y marketing digital.">
-  <title>Nexo Studio</title>
-  <link rel="icon" type="image/png" href="img/isotipo.png">
+  <meta charset="UTF-8"><!-- codificación con ñ y tildes -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- responsive: se adapta al ancho del celular -->
+  <meta name="description" content="Nexo Studio - conectamos tecnología y personas. Diseño UX/UI, desarrollo front-end, user research y marketing digital."><!-- resumen para Google -->
+  <title>Nexo Studio</title><!-- texto de la pestaña -->
+  <link rel="icon" type="image/png" href="img/isotipo.png"><!-- favicon (ícono de la pestaña) -->
 
-  <!-- Preconnect para Google Fonts -->
+  <!-- Preconnect: adelanta la conexión a Google Fonts para que carguen más rápido -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- Tailwind CDN + config centralizada -->
+  <!-- Tailwind por CDN + mi configuración de colores/fuentes (debe ir DESPUÉS del CDN) -->
   <script src="https://cdn.tailwindcss.com"></script>
   <script src="js/tailwind.config.js"></script>
 
+  <!-- Mi CSS propio: fuentes, grano, animaciones y patrones que Tailwind no cubre -->
   <link rel="stylesheet" href="estilos/style.css">
 </head>
+<!-- Clases Tailwind del body: fondo crema, texto tinta, fuente Geist, y
+     overflow-x-hidden para que nada desborde horizontalmente en móvil. -->
 <body class="bg-cream text-ink font-sans antialiased overflow-x-hidden">
 
-  <!-- ============ HEADER ============ -->
+  <!-- ============ HEADER (se repite igual en las 4 páginas) ============ -->
+  <!-- sticky top-0: la barra queda fija arriba al hacer scroll. z-50: por encima del resto.
+       bg-cream/85 + backdrop-blur: fondo semitransparente con desenfoque. -->
   <header class="site-header sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-line-soft px-[clamp(20px,5vw,56px)] py-4 flex items-center justify-between gap-6">
+    <!-- Logo: enlaza al inicio. El SVG dibuja la "X" de Nexo (se anima al cargar, ver .x-* en el CSS). -->
     <a href="index.html" class="flex items-center gap-3 shrink-0">
       <svg class="w-8 h-8 shrink-0" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <path class="x-stroke-a" d="M6 6 L34 34" stroke="#15233F" stroke-width="5.5" stroke-linecap="square"/>
@@ -31,22 +38,29 @@
       <span class="font-sans font-semibold text-base tracking-tight text-ink">Nexo<span class="font-medium text-ink-mute ml-1">Studio</span></span>
     </a>
 
+    <!-- Botón hamburguesa: solo visible en móvil (sm:hidden). aria-label/aria-expanded = accesibilidad.
+         &#9776; es el ícono ☰. Lo maneja menu.js. -->
     <button class="hamburger sm:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
 
+    <!-- Menú de navegación. En móvil se oculta y se despliega con .open (ver media query del CSS). -->
     <nav class="site-nav" id="nav-menu">
       <ul class="flex items-center gap-2 list-none m-0 p-0">
         <li><a href="index.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Inicio</a></li>
         <li><a href="servicios.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Servicios</a></li>
         <li><a href="proyectos.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Proyectos</a></li>
+        <!-- Botón de acción destacado (nav-cta): color de acento + puntito que late (dot-pulse). -->
         <li><a href="contacto.html" class="nav-cta font-mono text-[11px] uppercase tracking-[0.1em] px-4 py-[9px] bg-accent-deep text-white rounded-full transition hover:bg-accent-deep hover:-translate-y-[1px] inline-flex items-center gap-1.5 dot-pulse">Hablemos</a></li>
       </ul>
     </nav>
   </header>
 
+  <!-- <main> = contenido principal de la página (entre header y footer). -->
   <main class="relative z-10">
 
-    <!-- ============ HERO ============ -->
+    <!-- ============ HERO (presentación) ============ -->
+    <!-- max-w-[1280px] mx-auto = contenedor centrado con ancho máximo. .reveal = aparece al scroll. -->
     <section class="px-[clamp(20px,5vw,56px)] pt-12 pb-24 max-w-[1280px] mx-auto">
+      <!-- Línea superior: ubicación + estado "tomando proyectos" con un puntito verde. -->
       <div class="reveal flex flex-wrap justify-between items-center gap-5 pb-5 border-b border-line-soft font-mono text-[11px] tracking-[0.1em] uppercase text-ink-mute">
         <span>Nexo Studio · Buenos Aires</span>
         <span class="inline-flex items-center gap-2">
@@ -55,12 +69,15 @@
         </span>
       </div>
 
+      <!-- <h1>: título principal, uno por página. text-[clamp(...)] = tamaño fluido gigante.
+           text-balance reparte las líneas de forma pareja. -->
       <h1 class="reveal mt-10 font-sans font-medium text-[clamp(56px,11vw,160px)] leading-[0.96] tracking-[-0.04em] text-ink text-balance" data-delay="1">
         El <span class="accent-underline">nexo</span><br>
         entre tecnología<br>
         y personas.
       </h1>
 
+      <!-- Grilla de 2 columnas en escritorio (md): texto a la izquierda, botones a la derecha. -->
       <div class="mt-12 grid md:grid-cols-[1.2fr_1fr] gap-12 items-end">
         <p class="reveal font-sans font-normal text-[clamp(20px,2.4vw,28px)] leading-[1.35] tracking-tight text-ink-soft max-w-[540px]" data-delay="2">
           Diseñamos y construimos productos digitales con mirada estratégica,
@@ -68,6 +85,7 @@
           conectándose mejor con sus usuarios.
         </p>
 
+        <!-- Botones. El "group" permite que la flecha se mueva al pasar el mouse por todo el botón. -->
         <div class="reveal flex flex-col gap-4 items-start" data-delay="3">
           <a href="contacto.html" class="group inline-flex items-center gap-2.5 bg-ink text-cream font-medium text-[15px] tracking-tight px-7 py-4 rounded-full transition-all duration-300 hover:bg-accent hover:-translate-y-0.5">
             Hablemos de tu proyecto
@@ -81,8 +99,10 @@
       </div>
     </section>
 
-    <!-- ============ MÉTRICAS ============ -->
+    <!-- ============ MÉTRICAS (4 números) ============ -->
+    <!-- Grilla de 2 columnas en móvil y 4 en escritorio, con divisores. -->
     <section class="reveal max-w-[1280px] mx-auto px-[clamp(20px,5vw,56px)] grid grid-cols-2 md:grid-cols-4 border-t border-b border-line-soft">
+      <!-- sr-only: título solo para lectores de pantalla (visualmente oculto, pero da estructura). -->
       <h2 class="sr-only">Métricas</h2>
       <div class="p-6 border-r border-line-soft last:border-r-0 flex flex-col gap-2">
         <span class="font-sans font-medium text-[clamp(40px,5vw,72px)] leading-none tracking-tight text-ink">05<sup class="font-mono text-sm text-accent ml-1 align-super">•</sup></span>
@@ -102,7 +122,8 @@
       </div>
     </section>
 
-    <!-- ============ MANIFIESTO ============ -->
+    <!-- ============ MANIFIESTO (cómo trabajamos) ============ -->
+    <!-- Grilla: etiqueta angosta a la izquierda (sticky, queda fija al scrollear) + texto grande. -->
     <section class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto grid md:grid-cols-[200px_1fr] gap-12 items-start">
       <div class="reveal flex flex-col gap-3 md:sticky md:top-24">
         <h2 class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">02 / Manifiesto</h2>
@@ -113,6 +134,7 @@
       </div>
       <p class="reveal font-sans font-normal text-[clamp(28px,3.4vw,48px)] leading-[1.25] tracking-tight text-ink max-w-[820px]" data-delay="1">
         Creemos que un buen producto se nota cuando
+        <!-- Resaltado con un degradado en línea (marcador rosado detrás de la palabra). -->
         <span class="px-1" style="background:linear-gradient(180deg,transparent 60%,#F5C8B0 60%);">desaparece</span>
         en el uso. Diseñamos para personas reales, escribimos código que se
         sostiene en el tiempo, y elegimos la <span class="text-accent">claridad</span>
@@ -122,7 +144,7 @@
       </p>
     </section>
 
-    <!-- ============ EQUIPO ============ -->
+    <!-- ============ EQUIPO (las 5 integrantes) ============ -->
     <section class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto" id="equipo">
       <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end mb-12 pb-5 border-b border-line-soft">
         <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">03 / Equipo</span>
@@ -130,10 +152,13 @@
         <p class="text-[15px] text-ink-mute max-w-[320px] leading-[1.5] mb-2">Cinco perfiles complementarios. UX, UI, código, research y marketing - todo bajo el mismo techo.</p>
       </div>
 
+      <!-- Grilla de tarjetas: 1 columna en móvil, 2 en tablet (sm), 5 en escritorio (lg). -->
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
 
+        <!-- Cada integrante es un <article>. Foto en b/n que se colorea al hacer hover (grayscale-0). -->
         <article class="reveal team-card flex flex-col gap-3 transition-transform duration-300 hover:-translate-y-1">
           <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
+            <!-- loading="lazy": la imagen se descarga recién cuando está por verse (más rápido). alt = accesibilidad. -->
             <img src="img/rosario-presedo.jpg" alt="Foto de Rosario Presedo" loading="lazy" class="w-full h-full object-cover">
           </div>
           <div class="flex justify-between items-baseline font-mono text-[10px] uppercase tracking-[0.08em] text-ink-faint">
@@ -141,9 +166,11 @@
           </div>
           <h3 class="font-sans font-medium text-2xl leading-tight tracking-tight text-ink">Rosario Presedo</h3>
           <p class="text-[13px] text-ink-mute leading-[1.4]">Desarrolladora<br>Front-end</p>
+          <!-- Enlace externo al portfolio (target=_blank + rel=noopener noreferrer por seguridad). -->
           <a class="self-start mt-1 font-mono text-[10px] uppercase tracking-[0.1em] text-ink inline-flex items-center gap-1.5 pb-1 border-b border-ink transition hover:text-accent hover:border-accent" href="https://mrosariopresedo.github.io/portfolio-presedo-nexo-studio/" target="_blank" rel="noopener noreferrer">Ver portfolio <span class="text-sm">↗</span></a>
         </article>
 
+        <!-- Las otras 4 tarjetas son idénticas en estructura; cambian foto, nombre, rol y enlace. -->
         <article class="reveal team-card flex flex-col gap-3 transition-transform duration-300 hover:-translate-y-1" data-delay="1">
           <div class="relative aspect-[3/4] rounded-[10px] overflow-hidden bg-cream-deep grayscale-[40%] contrast-[1.05] transition-all duration-300 hover:grayscale-0">
             <img src="img/lucia-gavilanes.jpeg" alt="Foto de Lucía Gavilanes" loading="lazy" class="w-full h-full object-cover">
@@ -197,8 +224,9 @@
 
   </main>
 
-  <!-- ============ FOOTER ============ -->
+  <!-- ============ FOOTER (se repite igual en las 4 páginas) ============ -->
   <footer class="relative z-10 mt-16 border-t border-line-soft bg-cream-soft px-[clamp(20px,5vw,56px)] pt-16 pb-6">
+    <!-- Grilla de 4 columnas: marca + 3 columnas de enlaces. -->
     <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-line-soft">
       <div>
         <a href="index.html" class="flex items-center gap-3">
@@ -212,6 +240,7 @@
         </a>
         <p class="mt-4 text-lg text-ink-soft leading-[1.4] max-w-[360px]">Diseño + tecnología, en un solo equipo. <br>Buenos Aires, Argentina.</p>
       </div>
+      <!-- <h4> como título de cada columna de enlaces. -->
       <div>
         <h4 class="font-mono text-[10px] uppercase tracking-[0.15em] text-ink-faint mb-4 font-medium">Navegación</h4>
         <ul class="list-none p-0 m-0 flex flex-col gap-2.5">
@@ -239,10 +268,13 @@
       </div>
     </div>
 
+    <!-- Logotipo gigante decorativo "Nexo·" (aria-hidden: no aporta info, es adorno).
+         La "e" va en cursiva serif (.footer-wordmark-italic) y el punto es el acento naranja. -->
     <div class="max-w-[1280px] mx-auto mt-12 flex items-baseline gap-[0.05em] font-sans font-medium text-[clamp(80px,18vw,260px)] tracking-[-0.06em] leading-[0.9] text-ink select-none" aria-hidden="true">
       N<span class="footer-wordmark-italic">e</span>xo<span class="inline-block w-[0.18em] h-[0.18em] rounded-full bg-accent self-end ml-[-0.05em] mb-[0.1em]"></span>
     </div>
 
+    <!-- Línea final: copyright, materia/grupo y firma. -->
     <div class="max-w-[1280px] mx-auto mt-6 flex flex-wrap justify-between items-center gap-5 font-mono text-[11px] uppercase tracking-[0.1em] text-ink-faint">
       <span>© 2026 Nexo Studio</span>
       <span>DDW1C26 · Grupo 02</span>
@@ -250,6 +282,7 @@
     </div>
   </footer>
 
+  <!-- Los scripts van al final del body: así el HTML ya está cargado cuando corren. -->
   <script src="js/menu.js"></script>
   <script src="js/interactions.js"></script>
 </body>
