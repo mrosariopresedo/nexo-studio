@@ -18,7 +18,7 @@
 </head>
 <body class="bg-cream text-ink font-sans antialiased overflow-x-hidden">
 
-  <header class="site-header sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-line-soft px-[clamp(20px,5vw,56px)] py-4 flex items-center justify-between gap-6" data-screen-label="Header">
+  <header class="site-header sticky top-0 z-50 bg-cream/85 backdrop-blur-md border-b border-line-soft px-[clamp(20px,5vw,56px)] py-4 flex items-center justify-between gap-6">
     <a href="index.html" class="flex items-center gap-3 shrink-0">
       <svg class="w-8 h-8 shrink-0" viewBox="0 0 40 40" fill="none" aria-hidden="true">
         <path class="x-stroke-a" d="M6 6 L34 34" stroke="#15233F" stroke-width="5.5" stroke-linecap="square"/>
@@ -29,7 +29,7 @@
       <span class="font-sans font-semibold text-base tracking-tight text-ink">Nexo<span class="font-medium text-ink-mute ml-1">Studio</span></span>
     </a>
     <button class="hamburger sm:hidden inline-flex items-center justify-center w-11 h-11 rounded-full border border-line text-ink" id="hamburger" aria-label="Abrir menú" aria-expanded="false">&#9776;</button>
-    <nav class="site-nav hidden sm:block" id="nav-menu">
+    <nav class="site-nav" id="nav-menu">
       <ul class="flex items-center gap-2 list-none m-0 p-0">
         <li><a href="index.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Inicio</a></li>
         <li><a href="servicios.html" class="font-mono text-[11px] uppercase tracking-[0.1em] text-ink-mute px-3.5 py-2 rounded-full transition hover:text-ink">Servicios</a></li>
@@ -42,7 +42,7 @@
   <main class="relative z-10">
 
     <!-- ============ INTRO ============ -->
-    <section class="px-[clamp(20px,5vw,56px)] pt-12 pb-24 max-w-[1280px] mx-auto" data-screen-label="Intro">
+    <section class="px-[clamp(20px,5vw,56px)] pt-12 pb-24 max-w-[1280px] mx-auto">
       <div class="reveal flex flex-wrap justify-between items-center gap-5 pb-5 border-b border-line-soft font-mono text-[11px] tracking-[0.1em] uppercase text-ink-mute">
         <span>Servicios · Nexo Studio</span>
         <span>04 disciplinas · 01 equipo</span>
@@ -75,7 +75,7 @@
     </section>
 
     <!-- ============ SERVICIOS LIST ============ -->
-    <section id="servicios" class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto" data-screen-label="Servicios">
+    <section id="servicios" class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto">
       <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end mb-12 pb-5 border-b border-line-soft">
         <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">01 / Disciplinas</span>
         <h2 class="font-sans font-medium text-[clamp(40px,6vw,88px)] tracking-[-0.04em] leading-[0.98] text-balance">De la idea<br>al producto.</h2>
@@ -120,7 +120,7 @@
     </section>
 
     <!-- ============ PROCESO ============ -->
-    <section class="px-[clamp(20px,5vw,56px)] py-16 max-w-[1280px] mx-auto" data-screen-label="Proceso">
+    <section class="px-[clamp(20px,5vw,56px)] py-16 max-w-[1280px] mx-auto">
       <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end mb-12 pb-5 border-b border-line-soft">
         <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">02 / Proceso</span>
         <h2 class="font-sans font-medium text-[clamp(40px,6vw,88px)] tracking-[-0.04em] leading-[0.98] text-balance">Cómo trabajamos.</h2>
@@ -148,7 +148,7 @@
     </section>
 
     <!-- ============ CTA FINAL ============ -->
-    <section class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto" data-screen-label="CTA">
+    <section class="px-[clamp(20px,5vw,56px)] py-24 max-w-[1280px] mx-auto">
       <div class="reveal grid md:grid-cols-[200px_1fr_auto] gap-7 items-end">
         <span class="font-mono text-[11px] tracking-[0.1em] text-ink-faint">03 / Próximo paso</span>
         <h2 class="font-sans font-medium text-[clamp(40px,6vw,88px)] tracking-[-0.04em] leading-[0.98] text-balance">¿Conectamos tu<br>próximo proyecto?</h2>
@@ -164,7 +164,7 @@
   </main>
 
   <!-- ============ FOOTER ============ -->
-  <footer class="relative z-10 mt-16 border-t border-line-soft bg-cream-soft px-[clamp(20px,5vw,56px)] pt-16 pb-6" data-screen-label="Footer">
+  <footer class="relative z-10 mt-16 border-t border-line-soft bg-cream-soft px-[clamp(20px,5vw,56px)] pt-16 pb-6">
     <div class="max-w-[1280px] mx-auto grid grid-cols-1 md:grid-cols-[1.6fr_1fr_1fr_1fr] gap-12 pb-12 border-b border-line-soft">
       <div>
         <a href="index.html" class="flex items-center gap-3">
@@ -218,4 +218,3 @@
   <script src="js/interactions.js"></script>
 </body>
 </html>
-                                                                                                                      

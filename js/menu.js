@@ -4,9 +4,8 @@
   const nav = document.getElementById('nav-menu');
   if (hamburger && nav) {
     hamburger.addEventListener('click', () => {
+      // El nav se muestra/oculta con la clase .open (ver la media query móvil en style.css)
       const isOpen = nav.classList.toggle('open');
-      // toggle('hidden', false) muestra el nav; toggle('hidden', true) lo oculta
-      nav.classList.toggle('hidden', !isOpen);
       // Actualizar estado accesible del botón
       hamburger.setAttribute('aria-expanded', isOpen);
     });

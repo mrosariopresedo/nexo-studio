@@ -43,7 +43,6 @@ body::before {
 .reveal[data-delay="2"] { transition-delay: .2s; }
 .reveal[data-delay="3"] { transition-delay: .3s; }
 .reveal[data-delay="4"] { transition-delay: .4s; }
-.reveal[data-delay="5"] { transition-delay: .5s; }
 
 /* ---------- Underline acento detrás del texto (hero) ---------- */
 .accent-underline { position: relative; display: inline-block; z-index: 0; }
@@ -113,10 +112,6 @@ body::before {
   .servicio-img { display: none; }
   .servicio-row:hover { padding-left: 0; padding-right: 0; }
 }
-
-/* ---------- Shimmer (proyectos skeleton) ---------- */
-@keyframes shimmer { from { transform: translateX(-100%); } to { transform: translateX(100%); } }
-.shimmer-anim { animation: shimmer 3s cubic-bezier(.2,.8,.2,1) infinite; }
 
 /* ---------- Logo X stroke draw ---------- */
 @keyframes x-draw { from { transform: scaleY(0); opacity: 0; } to { transform: scaleY(1); opacity: 1; } }
